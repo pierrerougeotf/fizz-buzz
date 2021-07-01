@@ -16,10 +16,10 @@ private enum Constants {
     static let str2Label = "Str2"
     static let firstColor = Color.blue
     static let secondColor = Color.red
-    static let accentColor = Color.black
+    static let accentColor = Color.orange
 }
 
-enum FizzBuzzParameter {
+public enum FizzBuzzParameter {
     case int1
     case int2
     case limit
@@ -31,53 +31,66 @@ extension FizzBuzzParameter {
     func value(for viewModel: FizzBuzzViewModel) -> String {
         switch self {
         case .int1:
-            return viewModel.int1
+            return viewModel.inputParameters.int1
         case .int2:
-            return viewModel.int2
+            return viewModel.inputParameters.int2
         case .limit:
-            return viewModel.limit
+            return viewModel.inputParameters.limit
         case .str1:
-            return viewModel.str1
+            return viewModel.inputParameters.str1
         case .str2:
-            return viewModel.str2
+            return viewModel.inputParameters.str2
         }
     }
 }
 
-protocol FizzBuzzViewContract {
+public protocol FizzBuzzViewContract {
     func display(viewModel: FizzBuzzViewModel)
 }
 
-protocol FizzBuzzPresenter {
+public protocol FizzBuzzPresenter {
+    func start()
     func requestUpdate(of parameter: FizzBuzzParameter, to newValue: String)
 }
 
 public class FizzBuzzViewModel: ObservableObject {
 
+    public struct Parameters {
+        public var int1: String
+        public var int2: String
+        public var limit: String
+        public var str1: String
+        public var str2: String
+
+        public static let `default` = Parameters(int1: "", int2: "", limit: "", str1: "", str2: "")
+    }
+
     public struct Values {
         public let count: Int
         public let provider: (Int) -> String?
+
+        public static let `default` = Values(count: 1) { _ in ""}
     }
 
-    @Published public var int1: String
-    @Published public var int2: String
-    @Published public var limit: String
-    @Published public var str1: String
-    @Published public var str2: String
-    @Published public var values: Values
+    public struct Result {
+        public var parameters: Parameters
+        public var ratio: CGFloat
 
-    public init(int1: String,
-                int2: String,
-                limit: String,
-                str1: String,
-                str2: String,
-                values: Values) {
-        self.int1 = int1
-        self.int2 = int2
-        self.limit = limit
-        self.str1 = str1
-        self.str2 = str2
+        static let `default` = Result(parameters: Parameters.default, ratio:     0.0)
+    }
+
+    @Published public var inputParameters: Parameters
+    @Published public var values: Values
+    @Published public var result: Result?
+
+    static let `default` = FizzBuzzViewModel(inputParameters: .default, values: .default, result: .default)
+
+    public init(inputParameters: Parameters,
+                values: Values,
+                result: Result?) {
+        self.inputParameters = inputParameters
         self.values = values
+        self.result = result
     }
 }
 
@@ -175,38 +188,146 @@ struct InputView: View {
     }
 }
 
-struct FizzBuzzRequest: Hashable {
-    var int1: Int
-    var int2: Int
-    var limit: Int
-    var str1: String
-    var str2: String
+public struct FizzBuzzRequest {
+    public var int1: Int
+    public var int2: Int
+    public var limit: Int
+    public var str1: String
+    public var str2: String
+
+    static var `default` = FizzBuzzRequest(int1: 1, int2: 1, limit: 1, str1: "", str2: "")
 }
 
-struct FizzBuzzResult {
-    let count: Int
-    let valuesProvider: (Int) -> String?
+public struct FizzBuzzStatistics {
+    public var mostUsedRequest: FizzBuzzRequest
+    public var mostUsedRequestRate: Double
+}
+
+public protocol FizzBuzzInteractor {
+    func process(request: FizzBuzzRequest) -> FizzBuzzResult
+    var statistics: FizzBuzzStatistics? { get }
+}
+
+public class FizzBuzzInteractorImplementation: FizzBuzzInteractor {
+
+    public init(statisticsRepository: StatisticsRepository) {
+        self.statisticsRepository = statisticsRepository
+    }
+
+    public func process(request: FizzBuzzRequest) -> FizzBuzzResult {
+        statisticsRepository.record(request: request)
+        return FizzBuzzResult(count: request.limit) { index in
+            switch (index % request.int1 == 0, index % request.int2 == 0) {
+            case (true, false):
+                return request.str1
+            case (false, true):
+                return request.str2
+            case (true, true):
+                return request.str1 + request.str2
+            case (false, false):
+                return String(index)
+            }
+        }
+    }
+
+    public var statistics: FizzBuzzStatistics? {
+        guard
+            let mostUsedRequest = statisticsRepository.mostUsedRequest,
+            let mostUsedRequestCount = statisticsRepository.mostUsedRequestCount,
+            statisticsRepository.totalRequestsCount > 0 else { return nil }
+        return FizzBuzzStatistics(
+            mostUsedRequest: mostUsedRequest,
+            mostUsedRequestRate: Double(mostUsedRequestCount) / Double(statisticsRepository.totalRequestsCount)
+        )
+    }
+
+    // MARK: - Private
+
+    private let statisticsRepository: StatisticsRepository
+}
+
+public protocol StatisticsRepository {
+    func record(request: FizzBuzzRequest)
+    var mostUsedRequest: FizzBuzzRequest? { get }
+    var mostUsedRequestCount: Int? { get }
+    var totalRequestsCount: Int { get }
+}
+
+public class StatisticsRepositoryImplementation: StatisticsRepository {
+
+    public init() { }
+
+    public func record(request: FizzBuzzRequest) {
+        if let requestCount = results[request] {
+            results[request] = requestCount + 1
+        } else {
+            results[request] = 1
+        }
+    }
+
+    public var mostUsedRequest: FizzBuzzRequest? { mostUsedRequestElement?.key }
+
+    public var mostUsedRequestCount: Int? { mostUsedRequestElement?.value }
+
+    public var totalRequestsCount: Int { results.values.reduce(0) { $0 + $1 } }
+
+    // MARK: - Private
+
+    private var results: [FizzBuzzRequest: Int] = [:]
+
+    private var mostUsedRequestElement: Dictionary<FizzBuzzRequest, Int>.Element? {
+        guard
+            !results.isEmpty,
+            let maxRequestCount = results.values.max(),
+            let mostUsedRequestElement = (results.first { $0.value == maxRequestCount }) else { return nil }
+        return mostUsedRequestElement
+    }
+}
+
+extension FizzBuzzRequest: Hashable { }
+
+public struct FizzBuzzResult {
+    public let count: Int
+    public let valuesProvider: (Int) -> String?
 }
 
 extension FizzBuzzResult: RandomAccessCollection {
-    var startIndex: Int { return 0 }
-    var endIndex: Int { return count }
-    subscript(_ index: Int) -> String? { valuesProvider(index) }
+    public var startIndex: Int { return 0 }
+    public var endIndex: Int { return count }
+    public subscript(_ index: Int) -> String? { valuesProvider(index) }
 }
 
 class FizzBuzzPresenterImplementation: FizzBuzzPresenter {
 
+    init(fizzBuzzInteractor: FizzBuzzInteractor) {
+        self.fizzBuzzInteractor = fizzBuzzInteractor
+    }
+
     var viewContract: FizzBuzzViewContract?
+
+    func start() {
+        updateUI()
+    }
 
     func requestUpdate(of parameter: FizzBuzzParameter, to newValue: String) {
         self.request = (try? request.update(parameter, with: newValue)) ?? request
-        viewContract?.display(viewModel: mapper.map(request: request, result: result))
+        updateUI()
     }
 
     // MARK: - Private
-    private var request = FizzBuzzRequest(int1: 1, int2: 2, limit: 3, str1: "str1", str2: "str2")
-    private var result = FizzBuzzResult(count: 5) { _ in "tata" }
+
+    private var request = FizzBuzzRequest.default
+
     private let mapper = FizzBuzzViewModelMapper()
+
+    private let fizzBuzzInteractor: FizzBuzzInteractor
+
+    private func updateUI() {
+        let result = fizzBuzzInteractor.process(request: request)
+        let statistics = fizzBuzzInteractor.statistics
+        let viewModel = mapper.map(request: request, result: result, statistics: statistics)
+        viewContract?.display(viewModel: viewModel)
+    }
 }
 
 enum FizzBuzzError: Error {
@@ -220,6 +341,7 @@ private extension FizzBuzzRequest {
         case .int1, .int2, .limit:
             guard
                 let updatedValue = Int(stringValue),
+                updatedValue > 0,
                 let keyPath = parameter.intKeyPath else { throw FizzBuzzError.invalidParameter }
             updatedRequest[keyPath: keyPath] = updatedValue
         case .str1, .str2:
@@ -258,26 +380,37 @@ private extension FizzBuzzParameter {
 }
 
 struct FizzBuzzViewModelMapper {
-    func map(request: FizzBuzzRequest, result: FizzBuzzResult) -> FizzBuzzViewModel {
+    func map(request: FizzBuzzRequest, result: FizzBuzzResult, statistics: FizzBuzzStatistics?) -> FizzBuzzViewModel {
         FizzBuzzViewModel(
-            int1: request.int1.description,
-            int2: request.int2.description,
-            limit: request.limit.description,
-            str1: request.str1,
-            str2: request.str2,
-            values: FizzBuzzViewModel.Values(count: result.count, provider: result.valuesProvider)
+            inputParameters: request.parameters,
+            values: FizzBuzzViewModel.Values(count: result.count, provider: result.valuesProvider),
+            result: statistics.flatMap {
+                FizzBuzzViewModel.Result(
+                    parameters: $0.mostUsedRequest.parameters,
+                    ratio: CGFloat($0.mostUsedRequestRate)
+                )
+            }
+        )
+    }
+}
+
+private extension FizzBuzzRequest {
+    var parameters: FizzBuzzViewModel.Parameters {
+        FizzBuzzViewModel.Parameters(
+            int1: int1.description,
+            int2: int2.description,
+            limit: limit.description,
+            str1: str1,
+            str2: str2
         )
     }
 }
 
 extension FizzBuzzViewModel: FizzBuzzViewContract {
-    func display(viewModel: FizzBuzzViewModel) {
-        self.int1 = viewModel.int1
-        self.int2 = viewModel.int2
-        self.limit = viewModel.limit
-        self.str1 = viewModel.str1
-        self.str2 = viewModel.str2
+    public func display(viewModel: FizzBuzzViewModel) {
+        self.inputParameters = viewModel.inputParameters
         self.values = viewModel.values
+        self.result = viewModel.result
     }
 }
 
@@ -289,17 +422,16 @@ struct ContentView_Previews: PreviewProvider {
         )
     }
 
-    private static let viewModel = FizzBuzzViewModel(
-        int1: "3",
-        int2: "4",
-        limit: "5",
-        str1: "three",
-        str2: "four",
-        values: FizzBuzzViewModel.Values(count: 30) { _ in "toto" }
+    private static let viewModel = FizzBuzzViewModel.default
+
+    static var statisticsRepository: StatisticsRepository = StatisticsRepositoryImplementation()
+
+    static var fizzBuzzInteratactor: FizzBuzzInteractor = FizzBuzzInteractorImplementation(
+        statisticsRepository: Self.statisticsRepository
     )
 
     static func presenter(for viewModel: FizzBuzzViewContract) -> FizzBuzzPresenter {
-        let presenter = FizzBuzzPresenterImplementation()
+        let presenter = FizzBuzzPresenterImplementation(fizzBuzzInteractor: Self.fizzBuzzInteratactor)
         presenter.viewContract = viewModel
         return presenter
     }

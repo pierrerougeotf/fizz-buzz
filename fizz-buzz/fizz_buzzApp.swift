@@ -11,15 +11,28 @@ import SwiftUI
 struct fizz_buzzApp: App {
     var body: some Scene {
         WindowGroup {
-            let viewModel = FizzBuzzViewModel(
-                int1: "0",
-                int2: "0",
-                limit: "0",
-                str1: "",
-                str2: "",
-                values: FizzBuzzViewModel.Values(count: 50) { _ in "titi" }
+            FizzBuzzView(
+                presenter: Self.presenter(for: Self.viewModel),
+                viewModel: Self.viewModel
             )
-            FizzBuzzView(presenter: nil, viewModel: viewModel)
         }
+    }
+
+    // MARK: - Private
+
+
+    private static let viewModel = FizzBuzzViewModel.default
+
+    static var statisticsRepository: StatisticsRepository = StatisticsRepositoryImplementation()
+
+    static var fizzBuzzInteratactor: FizzBuzzInteractor = FizzBuzzInteractorImplementation(
+        statisticsRepository: Self.statisticsRepository
+    )
+
+    static func presenter(for viewModel: FizzBuzzViewContract) -> FizzBuzzPresenter {
+        let presenter = FizzBuzzPresenterImplementation(fizzBuzzInteractor: Self.fizzBuzzInteratactor)
+        presenter.viewContract = viewModel
+        presenter.start()
+        return presenter
     }
 }
