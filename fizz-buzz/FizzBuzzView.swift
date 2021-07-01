@@ -118,10 +118,11 @@ struct FizzBuzzView: View {
                 Section(header: Text("Input")) {
                     InputView(color: Constants.firstColor, label: Constants.int1Label, valueProxy: int1Proxy)
                     InputView(color: Constants.secondColor, label: Constants.int2Label, valueProxy: int2Proxy)
-                    InputView(color: Constants.accentColor, label: Constants.limitLabel, valueProxy: limitProxy)
                     InputView(color: Constants.firstColor, label: Constants.str1Label, valueProxy: str1Proxy)
                     InputView(color: Constants.secondColor, label: Constants.str2Label, valueProxy: str2Proxy)
+                    InputView(color: Constants.accentColor, label: Constants.limitLabel, valueProxy: limitProxy)
                 }
+
                 Section(header: Text("Result")) {
                     ScrollView(.horizontal) {
                         LazyHStack {
@@ -133,6 +134,16 @@ struct FizzBuzzView: View {
                                     }
                                 }
                             }
+                        }
+                    }
+                }
+
+                Section(header: Text("Statistics")) {
+                    HStack {
+                        Text("\r- Int1: 310\r- Int2: sdfsdfqsdfqsdfqsdfqsdfqsdfqsdfqsdf\r- Int3Int1: 310\r- Int2: sdfsdf\r- Limit: 100")
+                        VStack {
+                            Pie(startAngle: Angle(degrees: 0.0), endAngle: Angle(degrees: 145))
+                            Text("38%")
                         }
                     }
                 }
@@ -158,7 +169,8 @@ struct InputView: View {
             }.layoutPriority(0)
             Spacer()
             TextField(label, text: valueProxy)
-                .multilineTextAlignment(.trailing)
+                .multilineTextAlignment(.leading)
+                .foregroundColor(color)
         }
     }
 }
