@@ -53,26 +53,38 @@ protocol FizzBuzzPresenter {
 }
 
 public class FizzBuzzViewModel: ObservableObject {
+
+    public struct Values {
+        public let count: Int
+        public let provider: (Int) -> String?
+    }
+
     @Published public var int1: String
     @Published public var int2: String
     @Published public var limit: String
     @Published public var str1: String
     @Published public var str2: String
-    @Published public var valuesProvider: (Int) -> String?
+    @Published public var values: Values
 
     public init(int1: String,
                 int2: String,
                 limit: String,
                 str1: String,
                 str2: String,
-                valuesProvider: @escaping (Int) -> String?) {
+                values: Values) {
         self.int1 = int1
         self.int2 = int2
         self.limit = limit
         self.str1 = str1
         self.str2 = str2
-        self.valuesProvider = valuesProvider
+        self.values = values
     }
+}
+
+extension FizzBuzzViewModel.Values: RandomAccessCollection {
+    public var startIndex: Int { return 0 }
+    public var endIndex: Int { return count }
+    public subscript(_ index: Int) -> (id: Int, value: String) { (id: index, value: provider(index) ?? "") }
 }
 
 struct FizzBuzzView: View {
@@ -103,11 +115,27 @@ struct FizzBuzzView: View {
     var body: some View {
         NavigationView {
             Form {
-                InputView(color: Constants.firstColor, label: Constants.int1Label, valueProxy: int1Proxy)
-                InputView(color: Constants.secondColor, label: Constants.int2Label, valueProxy: int2Proxy)
-                InputView(color: Constants.accentColor, label: Constants.limitLabel, valueProxy: limitProxy)
-                InputView(color: Constants.firstColor, label: Constants.str1Label, valueProxy: str1Proxy)
-                InputView(color: Constants.secondColor, label: Constants.str2Label, valueProxy: str2Proxy)
+                Section(header: Text("Input")) {
+                    InputView(color: Constants.firstColor, label: Constants.int1Label, valueProxy: int1Proxy)
+                    InputView(color: Constants.secondColor, label: Constants.int2Label, valueProxy: int2Proxy)
+                    InputView(color: Constants.accentColor, label: Constants.limitLabel, valueProxy: limitProxy)
+                    InputView(color: Constants.firstColor, label: Constants.str1Label, valueProxy: str1Proxy)
+                    InputView(color: Constants.secondColor, label: Constants.str2Label, valueProxy: str2Proxy)
+                }
+                Section(header: Text("Result")) {
+                    ScrollView(.horizontal) {
+                        LazyHStack {
+                            ForEach(0..<viewModel.values.count, id: \.self) { index in
+                                if let value = viewModel.values.provider(index) {
+                                    VStack {
+                                        Text(String(index))
+                                        Text(value)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
             .navigationBarTitle(Constants.title)
         }
@@ -225,7 +253,7 @@ struct FizzBuzzViewModelMapper {
             limit: request.limit.description,
             str1: request.str1,
             str2: request.str2,
-            valuesProvider: result.valuesProvider
+            values: FizzBuzzViewModel.Values(count: result.count, provider: result.valuesProvider)
         )
     }
 }
@@ -237,7 +265,7 @@ extension FizzBuzzViewModel: FizzBuzzViewContract {
         self.limit = viewModel.limit
         self.str1 = viewModel.str1
         self.str2 = viewModel.str2
-        self.valuesProvider = viewModel.valuesProvider
+        self.values = viewModel.values
     }
 }
 
@@ -255,7 +283,7 @@ struct ContentView_Previews: PreviewProvider {
         limit: "5",
         str1: "three",
         str2: "four",
-        valuesProvider: { _ in "toto" }
+        values: FizzBuzzViewModel.Values(count: 30) { _ in "toto" }
     )
 
     static func presenter(for viewModel: FizzBuzzViewContract) -> FizzBuzzPresenter {

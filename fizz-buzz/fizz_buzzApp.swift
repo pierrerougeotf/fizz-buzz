@@ -17,7 +17,7 @@ struct fizz_buzzApp: App {
                 limit: "0",
                 str1: "",
                 str2: "",
-                valuesProvider: { _ in "titi"}
+                values: FizzBuzzViewModel.Values(count: 50) { _ in "titi" }
             )
             FizzBuzzView(presenter: nil, viewModel: viewModel)
         }
