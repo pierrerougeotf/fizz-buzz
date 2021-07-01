@@ -11,7 +11,15 @@ import SwiftUI
 struct fizz_buzzApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let viewModel = FizzBuzzViewModel(
+                int1: "0",
+                int2: "0",
+                limit: "0",
+                str1: "",
+                str2: "",
+                valuesProvider: { _ in "titi"}
+            )
+            FizzBuzzView(presenter: nil, viewModel: viewModel)
         }
     }
 }

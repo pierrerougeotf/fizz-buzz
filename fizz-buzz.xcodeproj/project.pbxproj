@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		49AB2968268A156F00251092 /* fizz_buzzApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB2967268A156F00251092 /* fizz_buzzApp.swift */; };
-		49AB296A268A156F00251092 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB2969268A156F00251092 /* ContentView.swift */; };
+		49AB296A268A156F00251092 /* FizzBuzzView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB2969268A156F00251092 /* FizzBuzzView.swift */; };
 		49AB296C268A157400251092 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49AB296B268A157400251092 /* Assets.xcassets */; };
 		49AB296F268A157400251092 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49AB296E268A157400251092 /* Preview Assets.xcassets */; };
 		49AB297A268A157500251092 /* fizz_buzzTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB2979268A157500251092 /* fizz_buzzTests.swift */; };
@@ -35,7 +35,7 @@
 /* Begin PBXFileReference section */
 		49AB2964268A156F00251092 /* fizz-buzz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fizz-buzz.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49AB2967268A156F00251092 /* fizz_buzzApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fizz_buzzApp.swift; sourceTree = "<group>"; };
-		49AB2969268A156F00251092 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		49AB2969268A156F00251092 /* FizzBuzzView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FizzBuzzView.swift; sourceTree = "<group>"; };
 		49AB296B268A157400251092 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49AB296E268A157400251092 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		49AB2970268A157400251092 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				49AB2967268A156F00251092 /* fizz_buzzApp.swift */,
-				49AB2969268A156F00251092 /* ContentView.swift */,
+				49AB2969268A156F00251092 /* FizzBuzzView.swift */,
 				49AB296B268A157400251092 /* Assets.xcassets */,
 				49AB2970268A157400251092 /* Info.plist */,
 				49AB296D268A157400251092 /* Preview Content */,
@@ -259,7 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49AB296A268A156F00251092 /* ContentView.swift in Sources */,
+				49AB296A268A156F00251092 /* FizzBuzzView.swift in Sources */,
 				49AB2968268A156F00251092 /* fizz_buzzApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
