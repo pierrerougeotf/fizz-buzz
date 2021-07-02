@@ -8,13 +8,6 @@
 import SwiftUI
 
 private enum Constants {
-    static let title = "Fizz Buzz"
-    static let int1Label = "Int1"
-    static let int2Label = "Int2"
-    static let limitLabel = "Limit"
-    static let str1Label = "Str1"
-    static let str2Label = "Str2"
-    static let emptyResultLabel = "No relevant statistics"
     static let firstColor = Color("PrimaryColor")
     static let secondColor = Color("SecondaryColor")
     static let accentColor = Color("AccentColor")
@@ -129,23 +122,23 @@ struct FizzBuzzView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Input")) {
-                    InputView(color: Constants.firstColor, label: Constants.int1Label, valueProxy: int1Proxy)
-                    InputView(color: Constants.secondColor, label: Constants.int2Label, valueProxy: int2Proxy)
-                    InputView(color: Constants.firstColor, label: Constants.str1Label, valueProxy: str1Proxy)
-                    InputView(color: Constants.secondColor, label: Constants.str2Label, valueProxy: str2Proxy)
-                    InputView(color: Constants.accentColor, label: Constants.limitLabel, valueProxy: limitProxy)
+                Section(header: Text("input_section_title".localized())) {
+                    InputView(color: Constants.firstColor, label: "int1_label".localized(), valueProxy: int1Proxy)
+                    InputView(color: Constants.secondColor, label: "int2_label".localized(), valueProxy: int2Proxy)
+                    InputView(color: Constants.firstColor, label: "str1_label".localized(), valueProxy: str1Proxy)
+                    InputView(color: Constants.secondColor, label: "str2_label".localized(), valueProxy: str2Proxy)
+                    InputView(color: Constants.accentColor, label: "limit_label".localized(), valueProxy: limitProxy)
                 }
 
-                Section(header: Text("Result")) {
+                Section(header: Text("result_section_title".localized())) {
                     ResultView(values: viewModel.result)
                 }
 
-                Section(header: Text("Statistics")) {
+                Section(header: Text("statistics_section_title".localized())) {
                     StatisticsView(statistics: viewModel.statistics)
                 }
             }
-            .navigationBarTitle(Constants.title)
+            .navigationBarTitle("app_title".localized())
         }
     }
 }
@@ -438,7 +431,7 @@ struct ResultView: View {
                     }
                 }
             } else {
-                Text("No relevant result")
+                Text("empty_result".localized())
             }
         }
     }
@@ -449,7 +442,7 @@ struct StatisticsView: View {
 
     var body: some View {
         HStack {
-            Text(resultText ?? Constants.emptyResultLabel)
+            Text(resultText ?? "empty_statistics".localized())
             VStack {
                 Pie(startAngle: Angle(degrees: 0.0), endAngle: Angle(degrees: ratioDegrees))
                 Text(ratioPercentageLabel)
@@ -467,11 +460,11 @@ struct StatisticsView: View {
         statistics.flatMap {
             """
 
-            -\(Constants.int1Label): \($0.parameters.int1)
-            -\(Constants.int2Label): \($0.parameters.int2)
-            -\(Constants.limitLabel): \($0.parameters.limit)
-            -\(Constants.str1Label): \($0.parameters.str1)
-            -\(Constants.str2Label): \($0.parameters.str2)
+            -\("int1_label".localized()): \($0.parameters.int1)
+            -\("int2_label".localized()): \($0.parameters.int2)
+            -\("str1_label".localized()): \($0.parameters.str1)
+            -\("str2_label".localized()): \($0.parameters.str2)
+            -\("limit_label".localized()): \($0.parameters.limit)
 
             """
         }

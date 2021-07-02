@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		494ADE48268EF0EC009B840F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 494ADE47268EF0EC009B840F /* Localizable.strings */; };
+		494ADE4A268EF192009B840F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADE49268EF192009B840F /* Utils.swift */; };
 		49AB2968268A156F00251092 /* fizz_buzzApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB2967268A156F00251092 /* fizz_buzzApp.swift */; };
 		49AB296A268A156F00251092 /* FizzBuzzView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB2969268A156F00251092 /* FizzBuzzView.swift */; };
 		49AB296C268A157400251092 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49AB296B268A157400251092 /* Assets.xcassets */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		494ADE47268EF0EC009B840F /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		494ADE49268EF192009B840F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		49AB2964268A156F00251092 /* fizz-buzz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fizz-buzz.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49AB2967268A156F00251092 /* fizz_buzzApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fizz_buzzApp.swift; sourceTree = "<group>"; };
 		49AB2969268A156F00251092 /* FizzBuzzView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FizzBuzzView.swift; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 				49AB2970268A157400251092 /* Info.plist */,
 				49B408DA268E266F0075D12F /* Pie.swift */,
 				49AB296D268A157400251092 /* Preview Content */,
+				494ADE47268EF0EC009B840F /* Localizable.strings */,
+				494ADE49268EF192009B840F /* Utils.swift */,
 			);
 			path = "fizz-buzz";
 			sourceTree = "<group>";
@@ -238,6 +244,7 @@
 			files = (
 				49AB296F268A157400251092 /* Preview Assets.xcassets in Resources */,
 				49AB296C268A157400251092 /* Assets.xcassets in Resources */,
+				494ADE48268EF0EC009B840F /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +272,7 @@
 				49B408DB268E266F0075D12F /* Pie.swift in Sources */,
 				49AB296A268A156F00251092 /* FizzBuzzView.swift in Sources */,
 				49AB2968268A156F00251092 /* fizz_buzzApp.swift in Sources */,
+				494ADE4A268EF192009B840F /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
