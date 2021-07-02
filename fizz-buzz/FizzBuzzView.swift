@@ -14,9 +14,10 @@ private enum Constants {
     static let limitLabel = "Limit"
     static let str1Label = "Str1"
     static let str2Label = "Str2"
-    static let firstColor = Color.blue
-    static let secondColor = Color.red
-    static let accentColor = Color.orange
+    static let emptyResultLabel = "No relevant statistics"
+    static let firstColor = Color("PrimaryColor")
+    static let secondColor = Color("SecondaryColor")
+    static let accentColor = Color("AccentColor")
 }
 
 public enum FizzBuzzParameter {
@@ -31,15 +32,15 @@ extension FizzBuzzParameter {
     func value(for viewModel: FizzBuzzViewModel) -> String {
         switch self {
         case .int1:
-            return viewModel.inputParameters.int1
+            return viewModel.input.int1
         case .int2:
-            return viewModel.inputParameters.int2
+            return viewModel.input.int2
         case .limit:
-            return viewModel.inputParameters.limit
+            return viewModel.input.limit
         case .str1:
-            return viewModel.inputParameters.str1
+            return viewModel.input.str1
         case .str2:
-            return viewModel.inputParameters.str2
+            return viewModel.input.str2
         }
     }
 }
@@ -65,36 +66,36 @@ public class FizzBuzzViewModel: ObservableObject {
         public static let `default` = Parameters(int1: "", int2: "", limit: "", str1: "", str2: "")
     }
 
-    public struct Values {
+    public struct Result {
         public let count: Int
         public let provider: (Int) -> String?
 
-        public static let `default` = Values(count: 1) { _ in ""}
+        public static let `default` = Result(count: 1) { _ in ""}
     }
 
-    public struct Result {
+    public struct Statistics {
         public var parameters: Parameters
-        public var ratio: CGFloat
+        public var rate: CGFloat
 
-        static let `default` = Result(parameters: Parameters.default, ratio:     0.0)
+        static let `default` = Statistics(parameters: Parameters.default, rate: 0.0)
     }
 
-    @Published public var inputParameters: Parameters
-    @Published public var values: Values
-    @Published public var result: Result?
+    @Published public var input: Parameters
+    @Published public var result: Result
+    @Published public var statistics: Statistics?
 
-    static let `default` = FizzBuzzViewModel(inputParameters: .default, values: .default, result: .default)
+    static let `default` = FizzBuzzViewModel(input: .default, result: .default, statistics: nil)
 
-    public init(inputParameters: Parameters,
-                values: Values,
-                result: Result?) {
-        self.inputParameters = inputParameters
-        self.values = values
+    public init(input: Parameters,
+                result: Result,
+                statistics: Statistics?) {
+        self.input = input
         self.result = result
+        self.statistics = statistics
     }
 }
 
-extension FizzBuzzViewModel.Values: RandomAccessCollection {
+extension FizzBuzzViewModel.Result: RandomAccessCollection {
     public var startIndex: Int { return 0 }
     public var endIndex: Int { return count }
     public subscript(_ index: Int) -> (id: Int, value: String) { (id: index, value: provider(index) ?? "") }
@@ -137,28 +138,11 @@ struct FizzBuzzView: View {
                 }
 
                 Section(header: Text("Result")) {
-                    ScrollView(.horizontal) {
-                        LazyHStack {
-                            ForEach(0..<viewModel.values.count, id: \.self) { index in
-                                if let value = viewModel.values.provider(index) {
-                                    VStack {
-                                        Text(String(index))
-                                        Text(value)
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    ResultView(values: viewModel.result)
                 }
 
                 Section(header: Text("Statistics")) {
-                    HStack {
-                        Text("\r- Int1: 310\r- Int2: sdfsdfqsdfqsdfqsdfqsdfqsdfqsdfqsdf\r- Int3Int1: 310\r- Int2: sdfsdf\r- Limit: 100")
-                        VStack {
-                            Pie(startAngle: Angle(degrees: 0.0), endAngle: Angle(degrees: 145))
-                            Text("38%")
-                        }
-                    }
+                    StatisticsView(statistics: viewModel.statistics)
                 }
             }
             .navigationBarTitle(Constants.title)
@@ -382,12 +366,12 @@ private extension FizzBuzzParameter {
 struct FizzBuzzViewModelMapper {
     func map(request: FizzBuzzRequest, result: FizzBuzzResult, statistics: FizzBuzzStatistics?) -> FizzBuzzViewModel {
         FizzBuzzViewModel(
-            inputParameters: request.parameters,
-            values: FizzBuzzViewModel.Values(count: result.count, provider: result.valuesProvider),
-            result: statistics.flatMap {
-                FizzBuzzViewModel.Result(
+            input: request.parameters,
+            result: FizzBuzzViewModel.Result(count: result.count, provider: result.valuesProvider),
+            statistics: statistics.flatMap {
+                FizzBuzzViewModel.Statistics(
                     parameters: $0.mostUsedRequest.parameters,
-                    ratio: CGFloat($0.mostUsedRequestRate)
+                    rate: CGFloat($0.mostUsedRequestRate)
                 )
             }
         )
@@ -408,9 +392,9 @@ private extension FizzBuzzRequest {
 
 extension FizzBuzzViewModel: FizzBuzzViewContract {
     public func display(viewModel: FizzBuzzViewModel) {
-        self.inputParameters = viewModel.inputParameters
-        self.values = viewModel.values
+        self.input = viewModel.input
         self.result = viewModel.result
+        self.statistics = viewModel.statistics
     }
 }
 
@@ -434,5 +418,62 @@ struct ContentView_Previews: PreviewProvider {
         let presenter = FizzBuzzPresenterImplementation(fizzBuzzInteractor: Self.fizzBuzzInteratactor)
         presenter.viewContract = viewModel
         return presenter
+    }
+}
+
+struct ResultView: View {
+    let values: FizzBuzzViewModel.Result
+
+    var body: some View {
+        ScrollView(.horizontal) {
+            if values.count > 1 {
+                LazyHStack {
+                    ForEach(1..<values.count, id: \.self) { index in
+                        if let value = values.provider(index) {
+                            VStack {
+                                Text(String(index))
+                                Text(value)
+                            }
+                        }
+                    }
+                }
+            } else {
+                Text("No relevant result")
+            }
+        }
+    }
+}
+
+struct StatisticsView: View {
+    let statistics: FizzBuzzViewModel.Statistics?
+
+    var body: some View {
+        HStack {
+            Text(resultText ?? Constants.emptyResultLabel)
+            VStack {
+                Pie(startAngle: Angle(degrees: 0.0), endAngle: Angle(degrees: ratioDegrees))
+                Text(ratioPercentageLabel)
+            }
+        }
+    }
+
+    // MARK: - Private
+
+    var ratioDegrees: Double { -Double(statistics?.rate ?? 0.0) * 360.0 }
+
+    var ratioPercentageLabel: String { statistics.flatMap { Int($0.rate * 100).description + " %"} ?? "" }
+
+    var resultText: String? {
+        statistics.flatMap {
+            """
+
+            -\(Constants.int1Label): \($0.parameters.int1)
+            -\(Constants.int2Label): \($0.parameters.int2)
+            -\(Constants.limitLabel): \($0.parameters.limit)
+            -\(Constants.str1Label): \($0.parameters.str1)
+            -\(Constants.str2Label): \($0.parameters.str2)
+
+            """
+        }
     }
 }
