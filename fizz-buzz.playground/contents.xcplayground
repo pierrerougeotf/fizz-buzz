@@ -3,5 +3,6 @@
     <pages>
         <page name='1 - Introduction'/>
         <page name='2 - Interactor'/>
+        <page name='3 - Presenter'/>
     </pages>
 </playground>
