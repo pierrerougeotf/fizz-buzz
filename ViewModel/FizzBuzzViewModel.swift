@@ -11,5 +11,11 @@ public struct FizzBuzzViewModel {
     public let result: ResultViewModel
     public let statistics: StatisticsViewModel
 
+    public init(input: ParametersViewModel, result: ResultViewModel, statistics: StatisticsViewModel) {
+        self.input = input
+        self.result = result
+        self.statistics = statistics
+    }
+
     public static let empty = Self(input: .empty, result: .irrelevant, statistics: .irrelevant)
 }
