@@ -53,11 +53,13 @@ public enum StatisticsViewModel {
 
     public struct Data {
         public let parameters: ParametersViewModel
-        public let rate: Double
+        public let ratioDegrees: Double
+        public let description: String
 
-        public init(parameters: ParametersViewModel, rate: Double) {
+        public init(parameters: ParametersViewModel, ratioDegrees: Double, description: String) {
             self.parameters = parameters
-            self.rate = rate
+            self.ratioDegrees = ratioDegrees
+            self.description = description
         }
     }
 
@@ -174,8 +176,8 @@ struct StatisticsView: View {
             HStack {
                 Text(data.resultText)
                 VStack {
-                    Pie(endAngle: Angle(degrees: data.ratioDegrees))
-                    Text(data.ratioPercentageLabel)
+                    Pie(endAngle: Angle(degrees: -data.ratioDegrees))
+                    Text(data.description)
                 }
             }
         }
@@ -183,9 +185,6 @@ struct StatisticsView: View {
 }
 
 private extension StatisticsViewModel.Data {
-    var ratioDegrees: Double { -Double(rate) * 360.0 }
-
-    var ratioPercentageLabel: String { Int(rate * 100).description + " %" }
 
     var resultText: String {
         """
@@ -384,6 +383,8 @@ public struct FizzBuzzResult {
 // FizzBuzzStatistics.swift
 public struct FizzBuzzStatistics {
     public var mostUsedRequest: FizzBuzzRequest
+    public var mostUsedRequestCount: Int
+    public var totalRequestsCount: Int
     public var mostUsedRequestRate: Double
 
     public var isRelevant: Bool { mostUsedRequest.isValid }
@@ -453,7 +454,14 @@ private extension FizzBuzzResult {
 private extension FizzBuzzStatistics {
     var viewModel: StatisticsViewModel {
         if isRelevant {
-            return .data(StatisticsViewModel.Data(parameters: mostUsedRequest.viewModel, rate: mostUsedRequestRate))
+            let rate = Double(mostUsedRequestCount) / Double(totalRequestsCount)
+            return .data(
+                StatisticsViewModel.Data(
+                    parameters: mostUsedRequest.viewModel,
+                    ratioDegrees: Double(rate) * 360.0,
+                    description: Int(rate * 100).description + " % (\(mostUsedRequestCount) / \(totalRequestsCount))"
+                )
+            )
         } else {
             return .irrelevant
         }
@@ -598,6 +606,8 @@ public class FizzBuzzInteractorImplementation {
             statisticsRepository.totalRequestsCount > 0 else { return nil }
         return FizzBuzzStatistics(
             mostUsedRequest: mostUsedRequest,
+            mostUsedRequestCount: mostUsedRequestCount,
+            totalRequestsCount: statisticsRepository.totalRequestsCount,
             mostUsedRequestRate: Double(mostUsedRequestCount) / Double(statisticsRepository.totalRequestsCount)
         )
     }
