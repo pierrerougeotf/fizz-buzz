@@ -13,6 +13,14 @@ public struct FizzBuzzRequest {
     public var str1: String
     public var str2: String
 
+    public init(int1: Int? = nil, int2: Int? = nil, limit: Int? = nil, str1: String, str2: String) {
+        self.int1 = int1
+        self.int2 = int2
+        self.limit = limit
+        self.str1 = str1
+        self.str2 = str2
+    }
+
     public static var empty = FizzBuzzRequest(int1: nil, int2: nil, limit: nil, str1: "", str2: "")
 
     /// Ensure a request will provide a result.
@@ -31,3 +39,7 @@ public struct FizzBuzzRequest {
         return true
     }
 }
+
+// The protocol implementation of Hashable and Equatable are automatically synthezied here
+// This protocol conformance is required due to the implementation of StatisticsRepositoryImplementation
+extension FizzBuzzRequest: Hashable { }
