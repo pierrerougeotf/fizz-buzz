@@ -18,32 +18,60 @@ public struct ParametersViewModel {
     public let str1: String
     public let str2: String
 
-    public static let `default` = Self(int1: "", int2: "", limit: "", str1: "", str2: "")
+    public init(int1: String, int2: String, limit: String, str1: String, str2: String) {
+        self.int1 = int1
+        self.int2 = int2
+        self.limit = limit
+        self.str1 = str1
+        self.str2 = str2
+    }
+
+    public static let empty = Self(int1: "", int2: "", limit: "", str1: "", str2: "")
 }
 
 // ResultViewModel.swift
-public struct ResultViewModel {
-    public let count: Int
-    public let provider: (Int) -> String?
+public enum ResultViewModel {
+    public struct Values {
+        /// Number of relevant indexes, first index being 1
+        public let count: Int
 
-    public static let `default` = Self(count: 1) { _ in ""}
+        /// Values, relevant for index in 1...count
+        public let provider: (Int) -> String?
+
+        public init(count: Int, provider: @escaping (Int) -> String?) {
+            self.count = count
+            self.provider = provider
+        }
+    }
+
+    case irrelevant
+    case values(Values)
 }
 
 // StatisticsViewModel.swift
-public struct StatisticsViewModel {
-    public let parameters: ParametersViewModel
-    public let rate: CGFloat
+public enum StatisticsViewModel {
 
-    public static let `default` = Self(parameters: .default, rate: 0.0)
+    public struct Data {
+        public let parameters: ParametersViewModel
+        public let rate: Double
+
+        public init(parameters: ParametersViewModel, rate: Double) {
+            self.parameters = parameters
+            self.rate = rate
+        }
+    }
+
+    case irrelevant
+    case data(Data)
 }
 
 // FizzBuzzViewModel
 public struct FizzBuzzViewModel {
     public let input: ParametersViewModel
     public let result: ResultViewModel
-    public let statistics: StatisticsViewModel?
+    public let statistics: StatisticsViewModel
 
-    public static let `default` = Self(input: .default, result: .default, statistics: nil)
+    public static let empty = Self(input: .empty, result: .irrelevant, statistics: .irrelevant)
 }
 
 //
@@ -100,66 +128,78 @@ struct InputView: View {
 import SwiftUI
 
 struct ResultView: View {
-    let values: ResultViewModel
+    let result: ResultViewModel
 
     // MARK: - View
 
     var body: some View {
-        ScrollView(.horizontal) {
-            if values.count > 1 {
-                LazyHStack {
-                    ForEach(1..<values.count, id: \.self) { index in
-                        if let value = values.provider(index) {
-                            VStack {
-                                Text(String(index))
-                                Text(value)
-                            }
+        switch result {
+        case .irrelevant:
+            Text("empty_result".localized())
+        case let .values(values):
+            ScrollView(.horizontal) {
+                LazyHStack(alignment: .top) {
+                    ForEach(values, id: \.id) { element in
+                        VStack {
+                            Text(String(element.id))
+                            Text(element.value)
                         }
                     }
                 }
-            } else {
-                Text("empty_result".localized())
             }
         }
     }
 }
+
+extension ResultViewModel.Values: RandomAccessCollection {
+    public var startIndex: Int { return 1 }
+    public var endIndex: Int { return count }
+    public subscript(_ index: Int) -> (id: Int, value: String) { (id: index, value: provider(index) ?? "") }
+}
+
 
 // StatisticsView.swift
 import SwiftUI
 
 struct StatisticsView: View {
-    let statistics: StatisticsViewModel?
+    let statistics: StatisticsViewModel
 
     // MARK: - View
 
     var body: some View {
-        HStack {
-            Text(resultText ?? "empty_statistics".localized())
-            VStack {
-                Pie(endAngle: Angle(degrees: ratioDegrees))
-                Text(ratioPercentageLabel)
+        switch statistics {
+        case .irrelevant:
+            Text("empty_statistics".localized())
+        case let .data(data):
+            HStack {
+                Text(data.resultText)
+                VStack {
+                    Pie(endAngle: Angle(degrees: data.ratioDegrees))
+                    Text(data.ratioPercentageLabel)
+                }
             }
         }
     }
+}
 
-    // MARK: - Private
+private extension StatisticsViewModel.Data {
+    var ratioDegrees: Double { -Double(rate) * 360.0 }
 
-    private var ratioDegrees: Double { -Double(statistics?.rate ?? 0.0) * 360.0 }
-    private var ratioPercentageLabel: String { statistics.flatMap { Int($0.rate * 100).description + " %"} ?? "" }
-    private var resultText: String? {
-        statistics.flatMap {
-            """
+    var ratioPercentageLabel: String { Int(rate * 100).description + " %" }
 
-            -\("int1_label".localized()): \($0.parameters.int1)
-            -\("int2_label".localized()): \($0.parameters.int2)
-            -\("str1_label".localized()): \($0.parameters.str1)
-            -\("str2_label".localized()): \($0.parameters.str2)
-            -\("limit_label".localized()): \($0.parameters.limit)
+    var resultText: String {
+        """
 
-            """
-        }
+        -\("int1_label".localized()): \(parameters.int1)
+        -\("int2_label".localized()): \(parameters.int2)
+        -\("str1_label".localized()): \(parameters.str1)
+        -\("str2_label".localized()): \(parameters.str2)
+        -\("limit_label".localized()): \(parameters.limit)
+
+        """
     }
 }
+
 
 private struct Pie: Shape {
     var endAngle: Angle
@@ -192,7 +232,7 @@ private enum Constants {
 
 public struct FizzBuzzView: View {
 
-    public init(presenter: FizzBuzzPresenter?, viewModel: FizzBuzzViewModel = .default) {
+    public init(presenter: FizzBuzzPresenter?, viewModel: FizzBuzzViewModel = .empty) {
         self.presenter = presenter
         self.viewModel = FizzBuzzViewModelProxy(
             input: viewModel.input,
@@ -221,7 +261,7 @@ public struct FizzBuzzView: View {
                 }
 
                 Section(header: Text("result_section_title".localized())) {
-                    ResultView(values: viewModel.result)
+                    ResultView(result: viewModel.result)
                 }
 
                 Section(header: Text("statistics_section_title".localized())) {
@@ -257,11 +297,11 @@ private class FizzBuzzViewModelProxy: ObservableObject {
 
     @Published var input: ParametersViewModel
     @Published var result: ResultViewModel
-    @Published var statistics: StatisticsViewModel?
+    @Published var statistics: StatisticsViewModel
 
     required init(input: ParametersViewModel,
                   result: ResultViewModel,
-                  statistics: StatisticsViewModel?) {
+                  statistics: StatisticsViewModel) {
         self.input = input
         self.result = result
         self.statistics = statistics
@@ -303,25 +343,50 @@ private extension FizzBuzzParameter {
 
 // FizzBuzzRequest.swift
 public struct FizzBuzzRequest {
-    public var int1: Int
-    public var int2: Int
-    public var limit: Int
+    public var int1: Int?
+    public var int2: Int?
+    public var limit: Int?
     public var str1: String
     public var str2: String
 
-    public static var `default` = FizzBuzzRequest(int1: 1, int2: 1, limit: 1, str1: "", str2: "")
+    public static var empty = FizzBuzzRequest(int1: nil, int2: nil, limit: nil, str1: "", str2: "")
+
+    public var isValid: Bool {
+        guard
+            let int1 = int1,
+            let int2 = int2,
+            let limit = limit,
+            int1 > 0,
+            int2 > 0,
+            limit > 0,
+            limit < Int.max - 1 else {
+            return false
+        }
+        return true
+    }
+
+
 }
 
 // FizzBuzzResult.swift
 public struct FizzBuzzResult {
+    /// Number of relevant indexes, first index being 1
     public let count: Int
-    public let valuesProvider: (Int) -> String?
+
+    /// Values, relevant for index in 1...count
+    public let provider: (Int) -> String?
+
+    static let empty = FizzBuzzResult(count: 0, provider: { _ in nil } )
+
+    public var isRelevant: Bool { count > 0 }
 }
 
 // FizzBuzzStatistics.swift
 public struct FizzBuzzStatistics {
     public var mostUsedRequest: FizzBuzzRequest
     public var mostUsedRequestRate: Double
+
+    public var isRelevant: Bool { mostUsedRequest.isValid }
 }
 
 //
@@ -347,27 +412,51 @@ public protocol FizzBuzzViewContract {
 struct FizzBuzzViewModelMapper {
     func map(request: FizzBuzzRequest, result: FizzBuzzResult, statistics: FizzBuzzStatistics?) -> FizzBuzzViewModel {
         FizzBuzzViewModel(
-            input: request.parameters,
-            result: ResultViewModel(count: result.count, provider: result.valuesProvider),
-            statistics: statistics.flatMap {
-                StatisticsViewModel(
-                    parameters: $0.mostUsedRequest.parameters,
-                    rate: CGFloat($0.mostUsedRequestRate)
-                )
-            }
+            input: request.viewModel,
+            result: result.viewModel,
+            statistics: statistics?.viewModel ?? .irrelevant
         )
     }
 }
 
 private extension FizzBuzzRequest {
-    var parameters: ParametersViewModel {
+    var viewModel: ParametersViewModel {
         ParametersViewModel(
-            int1: int1.description,
-            int2: int2.description,
-            limit: limit.description,
+            int1: int1.descriptionIfValidAnd(in: 1...Int.max, otherwise: ""),
+            int2: int2.descriptionIfValidAnd(in: 1...Int.max, otherwise: ""),
+            limit: limit.descriptionIfValidAnd(in: 1...Int.max - 1, otherwise: ""),
             str1: str1,
             str2: str2
         )
+    }
+}
+
+private extension Optional where Wrapped == Int {
+    func descriptionIfValidAnd(in range: ClosedRange<Int>, otherwise fallback: String) -> String {
+        guard
+            let unwrappedInt = self,
+            range.contains(unwrappedInt) else { return "" }
+        return unwrappedInt.description
+    }
+}
+
+private extension FizzBuzzResult {
+    var viewModel: ResultViewModel {
+        if isRelevant {
+            return .values(ResultViewModel.Values(count: count, provider: provider))
+        } else {
+            return .irrelevant
+        }
+    }
+}
+
+private extension FizzBuzzStatistics {
+    var viewModel: StatisticsViewModel {
+        if isRelevant {
+            return .data(StatisticsViewModel.Data(parameters: mostUsedRequest.viewModel, rate: mostUsedRequestRate))
+        } else {
+            return .irrelevant
+        }
     }
 }
 
@@ -382,21 +471,22 @@ public class FizzBuzzPresenterImplementation {
     // MARK: - FizzBuzzPresenter
 
     public func start() {
-        updateUI()
+        updateUI(for: self.request)
     }
 
     public func requestUpdate(of parameter: FizzBuzzParameter, to newValue: String) {
-        self.request = (try? request.update(parameter, with: newValue)) ?? request
-        updateUI()
+        let updatedRequest = request.update(parameter, with: newValue)
+        self.request = updatedRequest ?? self.request
+        updateUI(for: self.request)
     }
 
     // MARK: - Private
 
-    private var request = FizzBuzzRequest.default
+    private var request = FizzBuzzRequest.empty
     private let mapper = FizzBuzzViewModelMapper()
     private let fizzBuzzInteractor: FizzBuzzInteractor
 
-    private func updateUI() {
+    private func updateUI(for request: FizzBuzzRequest) {
         let result = fizzBuzzInteractor.process(request: request)
         let statistics = fizzBuzzInteractor.statistics
         let viewModel = mapper.map(request: request, result: result, statistics: statistics)
@@ -404,30 +494,34 @@ public class FizzBuzzPresenterImplementation {
     }
 }
 
-private enum FizzBuzzError: Error {
-    case invalidParameter
-}
-
 private extension FizzBuzzRequest {
-    func update(_ parameter: FizzBuzzParameter, with stringValue: String) throws -> FizzBuzzRequest {
+    func update(_ parameter: FizzBuzzParameter, with stringValue: String) -> FizzBuzzRequest? {
         var updatedRequest = self
         switch parameter {
         case .int1, .int2, .limit:
             guard
-                let updatedValue = Int(stringValue),
-                updatedValue > 0,
-                let keyPath = parameter.intKeyPath else { throw FizzBuzzError.invalidParameter }
-            updatedRequest[keyPath: keyPath] = updatedValue
+                let intValue = stringValue.toIntReplacingEmptyWithZero,
+                let keyPath = parameter.intKeyPath else { return nil }
+            updatedRequest[keyPath: keyPath] = intValue
         case .str1, .str2:
-            guard let keyPath = parameter.stringKeyPath else { throw FizzBuzzError.invalidParameter }
+            guard let keyPath = parameter.stringKeyPath else { return nil }
             updatedRequest[keyPath: keyPath] = stringValue
         }
         return updatedRequest
     }
+
+    var validOrNilRequest: FizzBuzzRequest? { isValid ? self : nil}
+}
+
+private extension String {
+    var toIntReplacingEmptyWithZero: Int? {
+        guard isEmpty else { return Int(self) }
+        return 0
+    }
 }
 
 private extension FizzBuzzParameter {
-    var intKeyPath: WritableKeyPath<FizzBuzzRequest, Int>? {
+    var intKeyPath: WritableKeyPath<FizzBuzzRequest, Int?>? {
         switch self {
         case .int1:
             return \.int1
@@ -478,9 +572,13 @@ public class FizzBuzzInteractorImplementation {
     // MARK: - FizzBuzzInteractor
 
     public func process(request: FizzBuzzRequest) -> FizzBuzzResult {
+        guard request.isValid,
+              let int1 = request.int1,
+              let int2 = request.int2,
+              let limit = request.limit else { return .empty }
         statisticsRepository.record(request: request)
-        return FizzBuzzResult(count: request.limit) { index in
-            switch (index % request.int1 == 0, index % request.int2 == 0) {
+        return FizzBuzzResult(count: limit + 1) { index in
+            switch (index % int1 == 0, index % int2 == 0) {
             case (true, false):
                 return request.str1
             case (false, true):
@@ -582,29 +680,8 @@ let (fizzBuzzPresenter, fizzBuzzView): (FizzBuzzPresenter, FizzBuzzView) = {
 // End App
 //
 
-//extension FizzBuzzResult: RandomAccessCollection {
-//    public var startIndex: Int { return 0 }
-//    public var endIndex: Int { return count }
-//    public subscript(_ index: Int) -> String? { valuesProvider(index) }
-//}
-
-
-//extension FizzBuzzViewModel: FizzBuzzViewContract {
-//    public func display(viewModel: FizzBuzzViewModel) {
-//        self.input = viewModel.input
-//        self.result = viewModel.result
-//        self.statistics = viewModel.statistics
-//    }
-//}
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         fizzBuzzView
     }
 }
-
-//extension FizzBuzzViewModel.Result: RandomAccessCollection {
-//    public var startIndex: Int { return 0 }
-//    public var endIndex: Int { return count }
-//    public subscript(_ index: Int) -> (id: Int, value: String) { (id: index, value: provider(index) ?? "") }
-//}

@@ -18,7 +18,7 @@ struct fizz_buzzApp: App {
     // MARK: - Private
 
 
-    private static let viewModel = FizzBuzzViewModel.default
+    private static let viewModel = FizzBuzzViewModel.empty
 
     static var statisticsRepository: StatisticsRepository = StatisticsRepositoryImplementation()
 
