@@ -5,14 +5,56 @@
 //  Created by Pierre Rougeot on 28/06/2021.
 //
 
-import SwiftUI
+//
+// ViewModel
+//
 
-private enum Constants {
-    static let firstColor = Color("PrimaryColor")
-    static let secondColor = Color("SecondaryColor")
-    static let accentColor = Color("AccentColor")
+// ParametersViewModel.swift
+
+public struct ParametersViewModel {
+    public let int1: String
+    public let int2: String
+    public let limit: String
+    public let str1: String
+    public let str2: String
+
+    public static let `default` = Self(int1: "", int2: "", limit: "", str1: "", str2: "")
 }
 
+// ResultViewModel.swift
+public struct ResultViewModel {
+    public let count: Int
+    public let provider: (Int) -> String?
+
+    public static let `default` = Self(count: 1) { _ in ""}
+}
+
+// StatisticsViewModel.swift
+public struct StatisticsViewModel {
+    public let parameters: ParametersViewModel
+    public let rate: CGFloat
+
+    public static let `default` = Self(parameters: .default, rate: 0.0)
+}
+
+// FizzBuzzViewModel
+public struct FizzBuzzViewModel {
+    public let input: ParametersViewModel
+    public let result: ResultViewModel
+    public let statistics: StatisticsViewModel?
+
+    public static let `default` = Self(input: .default, result: .default, statistics: nil)
+}
+
+//
+// End ViewModel
+//
+
+//
+// View
+//
+
+// FizzBuzzPresenter.swift
 public enum FizzBuzzParameter {
     case int1
     case int2
@@ -21,105 +63,153 @@ public enum FizzBuzzParameter {
     case str2
 }
 
-extension FizzBuzzParameter {
-    func value(for viewModel: FizzBuzzViewModel) -> String {
-        switch self {
-        case .int1:
-            return viewModel.input.int1
-        case .int2:
-            return viewModel.input.int2
-        case .limit:
-            return viewModel.input.limit
-        case .str1:
-            return viewModel.input.str1
-        case .str2:
-            return viewModel.input.str2
-        }
-    }
-}
-
-public protocol FizzBuzzViewContract {
-    func display(viewModel: FizzBuzzViewModel)
-}
-
 public protocol FizzBuzzPresenter {
     func start()
     func requestUpdate(of parameter: FizzBuzzParameter, to newValue: String)
 }
 
-public class FizzBuzzViewModel: ObservableObject {
+// InputView.swift
+import SwiftUI
 
-    public struct Parameters {
-        public var int1: String
-        public var int2: String
-        public var limit: String
-        public var str1: String
-        public var str2: String
+struct InputView: View {
+    let color: Color
+    let label: String
+    let valueProxy: Binding<String>
 
-        public static let `default` = Parameters(int1: "", int2: "", limit: "", str1: "", str2: "")
-    }
+    // MARK: - View
 
-    public struct Result {
-        public let count: Int
-        public let provider: (Int) -> String?
-
-        public static let `default` = Result(count: 1) { _ in ""}
-    }
-
-    public struct Statistics {
-        public var parameters: Parameters
-        public var rate: CGFloat
-
-        static let `default` = Statistics(parameters: Parameters.default, rate: 0.0)
-    }
-
-    @Published public var input: Parameters
-    @Published public var result: Result
-    @Published public var statistics: Statistics?
-
-    static let `default` = FizzBuzzViewModel(input: .default, result: .default, statistics: nil)
-
-    public init(input: Parameters,
-                result: Result,
-                statistics: Statistics?) {
-        self.input = input
-        self.result = result
-        self.statistics = statistics
+    var body: some View {
+        HStack {
+            ZStack {
+                color
+                    .ignoresSafeArea()
+                Text(label)
+                    .multilineTextAlignment(.leading)
+                    .foregroundColor(.white)
+            }.layoutPriority(0)
+            Spacer()
+            TextField(label, text: valueProxy)
+                .multilineTextAlignment(.leading)
+                .foregroundColor(color)
+        }
     }
 }
 
-extension FizzBuzzViewModel.Result: RandomAccessCollection {
-    public var startIndex: Int { return 0 }
-    public var endIndex: Int { return count }
-    public subscript(_ index: Int) -> (id: Int, value: String) { (id: index, value: provider(index) ?? "") }
+
+// ResultView.swift
+import SwiftUI
+
+struct ResultView: View {
+    let values: ResultViewModel
+
+    // MARK: - View
+
+    var body: some View {
+        ScrollView(.horizontal) {
+            if values.count > 1 {
+                LazyHStack {
+                    ForEach(1..<values.count, id: \.self) { index in
+                        if let value = values.provider(index) {
+                            VStack {
+                                Text(String(index))
+                                Text(value)
+                            }
+                        }
+                    }
+                }
+            } else {
+                Text("empty_result".localized())
+            }
+        }
+    }
 }
 
-struct FizzBuzzView: View {
+// StatisticsView.swift
+import SwiftUI
 
-    private var presenter: FizzBuzzPresenter?
+struct StatisticsView: View {
+    let statistics: StatisticsViewModel?
 
-    @ObservedObject var viewModel: FizzBuzzViewModel
+    // MARK: - View
 
-    public init(presenter: FizzBuzzPresenter?, viewModel: FizzBuzzViewModel) {
-        self.presenter = presenter
-        self.viewModel = viewModel
-    }
-
-    var int1Proxy: Binding<String> { binding(for: .int1, of: viewModel) }
-    var int2Proxy: Binding<String> { binding(for: .int2, of: viewModel) }
-    var limitProxy: Binding<String> { binding(for: .limit, of: viewModel) }
-    var str1Proxy: Binding<String> { binding(for: .str1, of: viewModel) }
-    var str2Proxy: Binding<String> { binding(for: .str2, of: viewModel) }
-
-    func binding(for parameter: FizzBuzzParameter, of viewModel: FizzBuzzViewModel) -> Binding<String> {
-        Binding<String> {
-            parameter.value(for: viewModel)
-        } set: {
-            presenter?.requestUpdate(of: parameter, to: $0)
+    var body: some View {
+        HStack {
+            Text(resultText ?? "empty_statistics".localized())
+            VStack {
+                Pie(endAngle: Angle(degrees: ratioDegrees))
+                Text(ratioPercentageLabel)
+            }
         }
     }
 
-    var body: some View {
+    // MARK: - Private
+
+    private var ratioDegrees: Double { -Double(statistics?.rate ?? 0.0) * 360.0 }
+    private var ratioPercentageLabel: String { statistics.flatMap { Int($0.rate * 100).description + " %"} ?? "" }
+    private var resultText: String? {
+        statistics.flatMap {
+            """
+
+            -\("int1_label".localized()): \($0.parameters.int1)
+            -\("int2_label".localized()): \($0.parameters.int2)
+            -\("str1_label".localized()): \($0.parameters.str1)
+            -\("str2_label".localized()): \($0.parameters.str2)
+            -\("limit_label".localized()): \($0.parameters.limit)
+
+            """
+        }
+    }
+}
+
+private struct Pie: Shape {
+    var endAngle: Angle
+
+    func path(in rect: CGRect) -> Path {
+        let center = CGPoint(x: rect.midX, y: rect.midY)
+        let radius = min(rect.width, rect.height) / 2
+        let start = CGPoint(
+            x: center.x + radius * CGFloat(cos(0.0)),
+            y: center.y + radius * CGFloat(sin(0.0))
+        )
+
+        var p = Path()
+        p.move(to: center)
+        p.addLine(to: start)
+        p.addArc(center: center, radius: radius, startAngle: Angle(radians: 0.0), endAngle: -endAngle, clockwise: false)
+        p.addLine(to: center)
+        return p
+    }
+}
+
+// FizzBuzzView.swift
+import SwiftUI
+
+private enum Constants {
+    static let firstColor = Color("PrimaryColor")
+    static let secondColor = Color("SecondaryColor")
+    static let accentColor = Color("AccentColor")
+}
+
+public struct FizzBuzzView: View {
+
+    public init(presenter: FizzBuzzPresenter?, viewModel: FizzBuzzViewModel = .default) {
+        self.presenter = presenter
+        self.viewModel = FizzBuzzViewModelProxy(
+            input: viewModel.input,
+            result: viewModel.result,
+            statistics: viewModel.statistics
+        )
+    }
+
+    // MARK: - FizzBuzzViewContract
+
+    public func display(viewModel: FizzBuzzViewModel) {
+        self.viewModel.configure(with: viewModel)
+    }
+
+    // MARK: - View
+
+    public var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("input_section_title".localized())) {
@@ -141,30 +231,77 @@ struct FizzBuzzView: View {
             .navigationBarTitle("app_title".localized())
         }
     }
-}
 
-struct InputView: View {
-    let color: Color
-    let label: String
-    let valueProxy: Binding<String>
+    // MARK: - Private
 
-    var body: some View {
-        HStack {
-            ZStack {
-                color
-                    .ignoresSafeArea()
-                Text(label)
-                    .multilineTextAlignment(.leading)
-                    .foregroundColor(.white)
-            }.layoutPriority(0)
-            Spacer()
-            TextField(label, text: valueProxy)
-                .multilineTextAlignment(.leading)
-                .foregroundColor(color)
+    private var presenter: FizzBuzzPresenter?
+
+    private var int1Proxy: Binding<String> { binding(for: .int1, of: viewModel) }
+    private var int2Proxy: Binding<String> { binding(for: .int2, of: viewModel) }
+    private var limitProxy: Binding<String> { binding(for: .limit, of: viewModel) }
+    private var str1Proxy: Binding<String> { binding(for: .str1, of: viewModel) }
+    private var str2Proxy: Binding<String> { binding(for: .str2, of: viewModel) }
+
+    @ObservedObject private var viewModel: FizzBuzzViewModelProxy
+
+    private func binding(for parameter: FizzBuzzParameter, of viewModel: FizzBuzzViewModelProxy) -> Binding<String> {
+        Binding<String> {
+            parameter.value(for: viewModel)
+        } set: {
+            presenter?.requestUpdate(of: parameter, to: $0)
         }
     }
 }
 
+private class FizzBuzzViewModelProxy: ObservableObject {
+
+    @Published var input: ParametersViewModel
+    @Published var result: ResultViewModel
+    @Published var statistics: StatisticsViewModel?
+
+    required init(input: ParametersViewModel,
+                  result: ResultViewModel,
+                  statistics: StatisticsViewModel?) {
+        self.input = input
+        self.result = result
+        self.statistics = statistics
+    }
+}
+
+private extension FizzBuzzViewModelProxy {
+    func configure(with viewModel: FizzBuzzViewModel) {
+        input = viewModel.input
+        result = viewModel.result
+        statistics = viewModel.statistics
+    }
+}
+
+private extension FizzBuzzParameter {
+    func value(for viewModel: FizzBuzzViewModelProxy) -> String {
+        switch self {
+        case .int1:
+            return viewModel.input.int1
+        case .int2:
+            return viewModel.input.int2
+        case .limit:
+            return viewModel.input.limit
+        case .str1:
+            return viewModel.input.str1
+        case .str2:
+            return viewModel.input.str2
+        }
+    }
+}
+
+//
+// End View
+//
+
+//
+// Entity
+//
+
+// FizzBuzzRequest.swift
 public struct FizzBuzzRequest {
     public var int1: Int
     public var int2: Int
@@ -172,121 +309,83 @@ public struct FizzBuzzRequest {
     public var str1: String
     public var str2: String
 
-    static var `default` = FizzBuzzRequest(int1: 1, int2: 1, limit: 1, str1: "", str2: "")
+    public static var `default` = FizzBuzzRequest(int1: 1, int2: 1, limit: 1, str1: "", str2: "")
 }
 
-public struct FizzBuzzStatistics {
-    public var mostUsedRequest: FizzBuzzRequest
-    public var mostUsedRequestRate: Double
-}
-
-public protocol FizzBuzzInteractor {
-    func process(request: FizzBuzzRequest) -> FizzBuzzResult
-    var statistics: FizzBuzzStatistics? { get }
-}
-
-public class FizzBuzzInteractorImplementation: FizzBuzzInteractor {
-
-    public init(statisticsRepository: StatisticsRepository) {
-        self.statisticsRepository = statisticsRepository
-    }
-
-    public func process(request: FizzBuzzRequest) -> FizzBuzzResult {
-        statisticsRepository.record(request: request)
-        return FizzBuzzResult(count: request.limit) { index in
-            switch (index % request.int1 == 0, index % request.int2 == 0) {
-            case (true, false):
-                return request.str1
-            case (false, true):
-                return request.str2
-            case (true, true):
-                return request.str1 + request.str2
-            case (false, false):
-                return String(index)
-            }
-        }
-    }
-
-    public var statistics: FizzBuzzStatistics? {
-        guard
-            let mostUsedRequest = statisticsRepository.mostUsedRequest,
-            let mostUsedRequestCount = statisticsRepository.mostUsedRequestCount,
-            statisticsRepository.totalRequestsCount > 0 else { return nil }
-        return FizzBuzzStatistics(
-            mostUsedRequest: mostUsedRequest,
-            mostUsedRequestRate: Double(mostUsedRequestCount) / Double(statisticsRepository.totalRequestsCount)
-        )
-    }
-
-    // MARK: - Private
-
-    private let statisticsRepository: StatisticsRepository
-}
-
-public protocol StatisticsRepository {
-    func record(request: FizzBuzzRequest)
-    var mostUsedRequest: FizzBuzzRequest? { get }
-    var mostUsedRequestCount: Int? { get }
-    var totalRequestsCount: Int { get }
-}
-
-public class StatisticsRepositoryImplementation: StatisticsRepository {
-
-    public init() { }
-
-    public func record(request: FizzBuzzRequest) {
-        if let requestCount = results[request] {
-            results[request] = requestCount + 1
-        } else {
-            results[request] = 1
-        }
-    }
-
-    public var mostUsedRequest: FizzBuzzRequest? { mostUsedRequestElement?.key }
-
-    public var mostUsedRequestCount: Int? { mostUsedRequestElement?.value }
-
-    public var totalRequestsCount: Int { results.values.reduce(0) { $0 + $1 } }
-
-    // MARK: - Private
-
-    private var results: [FizzBuzzRequest: Int] = [:]
-
-    private var mostUsedRequestElement: Dictionary<FizzBuzzRequest, Int>.Element? {
-        guard
-            !results.isEmpty,
-            let maxRequestCount = results.values.max(),
-            let mostUsedRequestElement = (results.first { $0.value == maxRequestCount }) else { return nil }
-        return mostUsedRequestElement
-    }
-}
-
-extension FizzBuzzRequest: Hashable { }
-
+// FizzBuzzResult.swift
 public struct FizzBuzzResult {
     public let count: Int
     public let valuesProvider: (Int) -> String?
 }
 
-extension FizzBuzzResult: RandomAccessCollection {
-    public var startIndex: Int { return 0 }
-    public var endIndex: Int { return count }
-    public subscript(_ index: Int) -> String? { valuesProvider(index) }
+// FizzBuzzStatistics.swift
+public struct FizzBuzzStatistics {
+    public var mostUsedRequest: FizzBuzzRequest
+    public var mostUsedRequestRate: Double
 }
 
-class FizzBuzzPresenterImplementation: FizzBuzzPresenter {
+//
+// End Entity
+//
 
-    init(fizzBuzzInteractor: FizzBuzzInteractor) {
+//
+// Presenter
+//
+
+// FizzBuzzInteractor.swift
+public protocol FizzBuzzInteractor {
+    func process(request: FizzBuzzRequest) -> FizzBuzzResult
+    var statistics: FizzBuzzStatistics? { get }
+}
+
+// FizzBuzzViewContract.swift
+public protocol FizzBuzzViewContract {
+    func display(viewModel: FizzBuzzViewModel)
+}
+
+// FizzBuzzViewModelMapper.swift
+struct FizzBuzzViewModelMapper {
+    func map(request: FizzBuzzRequest, result: FizzBuzzResult, statistics: FizzBuzzStatistics?) -> FizzBuzzViewModel {
+        FizzBuzzViewModel(
+            input: request.parameters,
+            result: ResultViewModel(count: result.count, provider: result.valuesProvider),
+            statistics: statistics.flatMap {
+                StatisticsViewModel(
+                    parameters: $0.mostUsedRequest.parameters,
+                    rate: CGFloat($0.mostUsedRequestRate)
+                )
+            }
+        )
+    }
+}
+
+private extension FizzBuzzRequest {
+    var parameters: ParametersViewModel {
+        ParametersViewModel(
+            int1: int1.description,
+            int2: int2.description,
+            limit: limit.description,
+            str1: str1,
+            str2: str2
+        )
+    }
+}
+
+// FizzBuzzPresenterImplementation.swift
+public class FizzBuzzPresenterImplementation {
+    public init(fizzBuzzInteractor: FizzBuzzInteractor) {
         self.fizzBuzzInteractor = fizzBuzzInteractor
     }
 
-    var viewContract: FizzBuzzViewContract?
+    public var viewContract: FizzBuzzViewContract?
 
-    func start() {
+    // MARK: - FizzBuzzPresenter
+
+    public func start() {
         updateUI()
     }
 
-    func requestUpdate(of parameter: FizzBuzzParameter, to newValue: String) {
+    public func requestUpdate(of parameter: FizzBuzzParameter, to newValue: String) {
         self.request = (try? request.update(parameter, with: newValue)) ?? request
         updateUI()
     }
@@ -294,9 +393,7 @@ class FizzBuzzPresenterImplementation: FizzBuzzPresenter {
     // MARK: - Private
 
     private var request = FizzBuzzRequest.default
-
     private let mapper = FizzBuzzViewModelMapper()
-
     private let fizzBuzzInteractor: FizzBuzzInteractor
 
     private func updateUI() {
@@ -307,7 +404,7 @@ class FizzBuzzPresenterImplementation: FizzBuzzPresenter {
     }
 }
 
-enum FizzBuzzError: Error {
+private enum FizzBuzzError: Error {
     case invalidParameter
 }
 
@@ -356,117 +453,158 @@ private extension FizzBuzzParameter {
 
 }
 
-struct FizzBuzzViewModelMapper {
-    func map(request: FizzBuzzRequest, result: FizzBuzzResult, statistics: FizzBuzzStatistics?) -> FizzBuzzViewModel {
-        FizzBuzzViewModel(
-            input: request.parameters,
-            result: FizzBuzzViewModel.Result(count: result.count, provider: result.valuesProvider),
-            statistics: statistics.flatMap {
-                FizzBuzzViewModel.Statistics(
-                    parameters: $0.mostUsedRequest.parameters,
-                    rate: CGFloat($0.mostUsedRequestRate)
-                )
-            }
-        )
-    }
+//
+// End Presenter
+//
+
+//
+// Interactor
+//
+
+// StatisticsRepository.swift
+public protocol StatisticsRepository {
+    func record(request: FizzBuzzRequest)
+    var mostUsedRequest: FizzBuzzRequest? { get }
+    var mostUsedRequestCount: Int? { get }
+    var totalRequestsCount: Int { get }
 }
 
-private extension FizzBuzzRequest {
-    var parameters: FizzBuzzViewModel.Parameters {
-        FizzBuzzViewModel.Parameters(
-            int1: int1.description,
-            int2: int2.description,
-            limit: limit.description,
-            str1: str1,
-            str2: str2
-        )
-    }
-}
-
-extension FizzBuzzViewModel: FizzBuzzViewContract {
-    public func display(viewModel: FizzBuzzViewModel) {
-        self.input = viewModel.input
-        self.result = viewModel.result
-        self.statistics = viewModel.statistics
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        FizzBuzzView(
-            presenter: Self.presenter(for: Self.viewModel),
-            viewModel: Self.viewModel
-        )
+// FizzBuzzInteractorImplementation.swit
+public class FizzBuzzInteractorImplementation {
+    public init(statisticsRepository: StatisticsRepository) {
+        self.statisticsRepository = statisticsRepository
     }
 
-    private static let viewModel = FizzBuzzViewModel.default
+    // MARK: - FizzBuzzInteractor
 
-    static var statisticsRepository: StatisticsRepository = StatisticsRepositoryImplementation()
-
-    static var fizzBuzzInteratactor: FizzBuzzInteractor = FizzBuzzInteractorImplementation(
-        statisticsRepository: Self.statisticsRepository
-    )
-
-    static func presenter(for viewModel: FizzBuzzViewContract) -> FizzBuzzPresenter {
-        let presenter = FizzBuzzPresenterImplementation(fizzBuzzInteractor: Self.fizzBuzzInteratactor)
-        presenter.viewContract = viewModel
-        return presenter
-    }
-}
-
-struct ResultView: View {
-    let values: FizzBuzzViewModel.Result
-
-    var body: some View {
-        ScrollView(.horizontal) {
-            if values.count > 1 {
-                LazyHStack {
-                    ForEach(1..<values.count, id: \.self) { index in
-                        if let value = values.provider(index) {
-                            VStack {
-                                Text(String(index))
-                                Text(value)
-                            }
-                        }
-                    }
-                }
-            } else {
-                Text("empty_result".localized())
+    public func process(request: FizzBuzzRequest) -> FizzBuzzResult {
+        statisticsRepository.record(request: request)
+        return FizzBuzzResult(count: request.limit) { index in
+            switch (index % request.int1 == 0, index % request.int2 == 0) {
+            case (true, false):
+                return request.str1
+            case (false, true):
+                return request.str2
+            case (true, true):
+                return request.str1 + request.str2
+            case (false, false):
+                return String(index)
             }
         }
     }
-}
 
-struct StatisticsView: View {
-    let statistics: FizzBuzzViewModel.Statistics?
-
-    var body: some View {
-        HStack {
-            Text(resultText ?? "empty_statistics".localized())
-            VStack {
-                Pie(startAngle: Angle(degrees: 0.0), endAngle: Angle(degrees: ratioDegrees))
-                Text(ratioPercentageLabel)
-            }
-        }
+    public var statistics: FizzBuzzStatistics? {
+        guard
+            let mostUsedRequest = statisticsRepository.mostUsedRequest,
+            let mostUsedRequestCount = statisticsRepository.mostUsedRequestCount,
+            statisticsRepository.totalRequestsCount > 0 else { return nil }
+        return FizzBuzzStatistics(
+            mostUsedRequest: mostUsedRequest,
+            mostUsedRequestRate: Double(mostUsedRequestCount) / Double(statisticsRepository.totalRequestsCount)
+        )
     }
 
     // MARK: - Private
 
-    var ratioDegrees: Double { -Double(statistics?.rate ?? 0.0) * 360.0 }
+    private let statisticsRepository: StatisticsRepository
+}
 
-    var ratioPercentageLabel: String { statistics.flatMap { Int($0.rate * 100).description + " %"} ?? "" }
+//
+// End Interactor
+//
 
-    var resultText: String? {
-        statistics.flatMap {
-            """
+//
+// Repository
+//
 
-            -\("int1_label".localized()): \($0.parameters.int1)
-            -\("int2_label".localized()): \($0.parameters.int2)
-            -\("str1_label".localized()): \($0.parameters.str1)
-            -\("str2_label".localized()): \($0.parameters.str2)
-            -\("limit_label".localized()): \($0.parameters.limit)
+public class StatisticsRepositoryImplementation {
 
-            """
+    public init() { }
+
+    // MARK: - StatisticsRepository
+
+    public func record(request: FizzBuzzRequest) {
+        if let requestCount = results[request] {
+            results[request] = requestCount + 1
+        } else {
+            results[request] = 1
         }
     }
+
+    public var mostUsedRequest: FizzBuzzRequest? { mostUsedRequestElement?.key }
+
+    public var mostUsedRequestCount: Int? { mostUsedRequestElement?.value }
+
+    public var totalRequestsCount: Int { results.values.reduce(0) { $0 + $1 } }
+
+    // MARK: - Private
+
+    private var results: [FizzBuzzRequest: Int] = [:]
+
+    private var mostUsedRequestElement: Dictionary<FizzBuzzRequest, Int>.Element? {
+        guard
+            !results.isEmpty,
+            let maxRequestCount = results.values.max(),
+            let mostUsedRequestElement = (results.first { $0.value == maxRequestCount }) else { return nil }
+        return mostUsedRequestElement
+    }
 }
+
+extension FizzBuzzRequest: Hashable { }
+
+//
+// End Repository
+//
+
+//
+// App
+//
+
+// Assembly.swift
+extension StatisticsRepositoryImplementation: StatisticsRepository { }
+extension FizzBuzzInteractorImplementation: FizzBuzzInteractor { }
+extension FizzBuzzPresenterImplementation: FizzBuzzPresenter { }
+extension FizzBuzzView: FizzBuzzViewContract { }
+
+// Factory.swift
+let statisticsRepository: StatisticsRepository = StatisticsRepositoryImplementation()
+let fizzBuzzInteractor: FizzBuzzInteractor = FizzBuzzInteractorImplementation(
+    statisticsRepository: statisticsRepository
+)
+let (fizzBuzzPresenter, fizzBuzzView): (FizzBuzzPresenter, FizzBuzzView) = {
+    let presenter = FizzBuzzPresenterImplementation(fizzBuzzInteractor: fizzBuzzInteractor)
+    let view = FizzBuzzView(presenter: presenter)
+    presenter.viewContract = view
+    return (presenter, view)
+}()
+
+//
+// End App
+//
+
+//extension FizzBuzzResult: RandomAccessCollection {
+//    public var startIndex: Int { return 0 }
+//    public var endIndex: Int { return count }
+//    public subscript(_ index: Int) -> String? { valuesProvider(index) }
+//}
+
+
+//extension FizzBuzzViewModel: FizzBuzzViewContract {
+//    public func display(viewModel: FizzBuzzViewModel) {
+//        self.input = viewModel.input
+//        self.result = viewModel.result
+//        self.statistics = viewModel.statistics
+//    }
+//}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        fizzBuzzView
+    }
+}
+
+//extension FizzBuzzViewModel.Result: RandomAccessCollection {
+//    public var startIndex: Int { return 0 }
+//    public var endIndex: Int { return count }
+//    public subscript(_ index: Int) -> (id: Int, value: String) { (id: index, value: provider(index) ?? "") }
+//}

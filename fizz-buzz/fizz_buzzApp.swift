@@ -11,10 +11,7 @@ import SwiftUI
 struct fizz_buzzApp: App {
     var body: some Scene {
         WindowGroup {
-            FizzBuzzView(
-                presenter: Self.presenter(for: Self.viewModel),
-                viewModel: Self.viewModel
-            )
+            fizzBuzzView
         }
     }
 

@@ -15,7 +15,6 @@
 		49AB296F268A157400251092 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49AB296E268A157400251092 /* Preview Assets.xcassets */; };
 		49AB297A268A157500251092 /* fizz_buzzTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB2979268A157500251092 /* fizz_buzzTests.swift */; };
 		49AB2985268A157500251092 /* fizz_buzzUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB2984268A157500251092 /* fizz_buzzUITests.swift */; };
-		49B408DB268E266F0075D12F /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B408DA268E266F0075D12F /* Pie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +49,6 @@
 		49AB2980268A157500251092 /* fizz-buzzUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "fizz-buzzUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49AB2984268A157500251092 /* fizz_buzzUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fizz_buzzUITests.swift; sourceTree = "<group>"; };
 		49AB2986268A157500251092 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		49B408DA268E266F0075D12F /* Pie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +103,6 @@
 				49AB2969268A156F00251092 /* FizzBuzzView.swift */,
 				49AB296B268A157400251092 /* Assets.xcassets */,
 				49AB2970268A157400251092 /* Info.plist */,
-				49B408DA268E266F0075D12F /* Pie.swift */,
 				49AB296D268A157400251092 /* Preview Content */,
 				494ADE47268EF0EC009B840F /* Localizable.strings */,
 				494ADE49268EF192009B840F /* Utils.swift */,
@@ -269,7 +266,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49B408DB268E266F0075D12F /* Pie.swift in Sources */,
 				49AB296A268A156F00251092 /* FizzBuzzView.swift in Sources */,
 				49AB2968268A156F00251092 /* fizz_buzzApp.swift in Sources */,
 				494ADE4A268EF192009B840F /* Utils.swift in Sources */,
