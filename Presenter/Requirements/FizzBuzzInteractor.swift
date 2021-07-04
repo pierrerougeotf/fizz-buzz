@@ -12,5 +12,6 @@ public protocol FizzBuzzInteractor {
     /// - Parameter request: request
     /// - returns result
     func process(request: FizzBuzzRequest) -> FizzBuzzResult
+    
     var statistics: FizzBuzzStatistics? { get }
 }

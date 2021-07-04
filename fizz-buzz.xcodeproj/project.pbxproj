@@ -33,6 +33,9 @@
 		494ADEEE268F198E009B840F /* View.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 494ADEE7268F198E009B840F /* View.framework */; };
 		494ADEEF268F198E009B840F /* View.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 494ADEE7268F198E009B840F /* View.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		494ADEF5268F19BD009B840F /* FizzBuzzPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADEF4268F19BD009B840F /* FizzBuzzPresenter.swift */; };
+		494ADEF726925FDE009B840F /* InputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADEF626925FDE009B840F /* InputViewModel.swift */; };
+		494ADEF926926001009B840F /* ResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADEF826926001009B840F /* ResultViewModel.swift */; };
+		494ADEFB2692602B009B840F /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADEFA2692602B009B840F /* StatisticsViewModel.swift */; };
 		49AB2968268A156F00251092 /* fizz_buzzApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB2967268A156F00251092 /* fizz_buzzApp.swift */; };
 		49AB296A268A156F00251092 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB2969268A156F00251092 /* ContentView.swift */; };
 		49AB296C268A157400251092 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49AB296B268A157400251092 /* Assets.xcassets */; };
@@ -168,6 +171,9 @@
 		494ADEE9268F198E009B840F /* View.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = View.h; sourceTree = "<group>"; };
 		494ADEEA268F198E009B840F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		494ADEF4268F19BD009B840F /* FizzBuzzPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FizzBuzzPresenter.swift; sourceTree = "<group>"; };
+		494ADEF626925FDE009B840F /* InputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewModel.swift; sourceTree = "<group>"; };
+		494ADEF826926001009B840F /* ResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModel.swift; sourceTree = "<group>"; };
+		494ADEFA2692602B009B840F /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
 		49AB2964268A156F00251092 /* fizz-buzz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fizz-buzz.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49AB2967268A156F00251092 /* fizz_buzzApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fizz_buzzApp.swift; sourceTree = "<group>"; };
 		49AB2969268A156F00251092 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -335,6 +341,9 @@
 				494ADED6268F1917009B840F /* ViewModel.h */,
 				494ADED7268F1917009B840F /* Info.plist */,
 				494ADEE0268F1933009B840F /* FizzBuzzViewModel.swift */,
+				494ADEF626925FDE009B840F /* InputViewModel.swift */,
+				494ADEF826926001009B840F /* ResultViewModel.swift */,
+				494ADEFA2692602B009B840F /* StatisticsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -861,7 +870,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				494ADEF726925FDE009B840F /* InputViewModel.swift in Sources */,
+				494ADEF926926001009B840F /* ResultViewModel.swift in Sources */,
 				494ADEE1268F1933009B840F /* FizzBuzzViewModel.swift in Sources */,
+				494ADEFB2692602B009B840F /* StatisticsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

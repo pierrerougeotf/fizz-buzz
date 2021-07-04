@@ -8,11 +8,10 @@
 /// Statistics
 public struct FizzBuzzStatistics {
     public var mostUsedRequest: FizzBuzzRequest
-    /// From 0.0 to 1.0: out of all requests having registered
+    public var mostUsedRequestCount: Int
+    public var totalRequestsCount: Int
     public var mostUsedRequestRate: Double
 
-    public init(mostUsedRequest: FizzBuzzRequest, mostUsedRequestRate: Double) {
-        self.mostUsedRequest = mostUsedRequest
-        self.mostUsedRequestRate = mostUsedRequestRate
-    }
+    /// statistics are relevant if and only if the mostUsedRequest is valid (if there is a most usedRequest
+    public var isRelevant: Bool { mostUsedRequest.isValid }
 }

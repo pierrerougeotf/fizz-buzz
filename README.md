@@ -16,13 +16,13 @@ Easy to maintain by other developers
 ## Comments
 
 Since no design is being provided, some arbitrary choices will be made regarding the UI.
-No specification is given in the case where 2 requests occurences are identical. Arbitrary choices or irrelevant result may happen
+No specification is given in the case where 2 requests occurence are identical. Arbitrary choices or irrelevant result may happen
 No specification is provided regarding the input data limits and size. Arbitrary choices will happen. 
 
 # Methodology
 
  We will use the playground driven development for some part of the code
  We will use SwiftUI previews for the UI development
- We will move some playground driven development code to unit test for maintenance purpose
+ We will move some playground driven development code to unit test for maintenance on non-regression goal.
  
  Please start reading the introduction playground
