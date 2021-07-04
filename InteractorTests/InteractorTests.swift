@@ -15,6 +15,7 @@ private enum Constants {
     static let request2 = FizzBuzzRequest(int1: 3, int2: 2, limit: 6, str1: "R", str2: "test")
     static let request3 = FizzBuzzRequest(int1: 1, int2: 4, limit: 5, str1: "test", str2: "test")
     static let request4 = request3
+    static let request5 = FizzBuzzRequest(int1: 1, int2: 4, limit: Int.max, str1: "test", str2: "test")
 }
 
 class InteractorTests: XCTestCase {
@@ -49,6 +50,15 @@ class InteractorTests: XCTestCase {
         XCTAssertEqual(result.provider(4), "test")
         XCTAssertEqual(result.provider(5), "5")
         XCTAssertEqual(result.provider(6), "Rtest")
+    }
+
+    func testOutOfLimitResult() {
+        let repository = StatisticsRepositoryImplementationNonEmpty()
+        let interactor = FizzBuzzInteractorImplementation(statisticsRepository: repository)
+
+        let result = interactor.process(request: Constants.request5)
+
+        XCTAssertEqual(result.count, 0)
     }
 }
 
