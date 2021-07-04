@@ -14,7 +14,12 @@ public struct FizzBuzzResult {
     /// Values, relevant for index in 1...count
     public let provider: (Int) -> String?
 
-    static let empty = FizzBuzzResult(count: 0, provider: { _ in nil } )
+    public init(count: Int, provider: @escaping (Int) -> String?) {
+        self.count = count
+        self.provider = provider
+    }
+
+    public static let empty = FizzBuzzResult(count: 0, provider: { _ in nil } )
 
     /// A result will be irrelevant if it cannot return any value
     public var isRelevant: Bool { count > 0 }

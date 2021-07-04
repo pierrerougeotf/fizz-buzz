@@ -10,8 +10,9 @@ import Entity
 public protocol FizzBuzzInteractor {
     /// processes any fizz buzz request and record the operation for statistics
     /// - Parameter request: request
-    /// - returns result
+    /// - returns result if request is valid. In case of invalid request, .empty will be sent
     func process(request: FizzBuzzRequest) -> FizzBuzzResult
-    
+
+    /// nil if no statistics can be computed
     var statistics: FizzBuzzStatistics? { get }
 }

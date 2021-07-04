@@ -8,26 +8,63 @@
 import XCTest
 @testable import Interactor
 
+import Entity
+
+private enum Constants {
+    static let request1 = FizzBuzzRequest(int1: 1, int2: 2, limit: 5, str1: "", str2: "test")
+    static let request2 = FizzBuzzRequest(int1: 3, int2: 2, limit: 6, str1: "R", str2: "test")
+    static let request3 = FizzBuzzRequest(int1: 1, int2: 4, limit: 5, str1: "test", str2: "test")
+    static let request4 = request3
+}
+
 class InteractorTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testEmptyStatistics() {
+        let repository = StatisticsRepositoryImplementationEmpty()
+        let interactor = FizzBuzzInteractorImplementation(statisticsRepository: repository)
+
+        XCTAssertNil(interactor.statistics)
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testNonEmptyStatistics() {
+        let repository = StatisticsRepositoryImplementationNonEmpty()
+        let interactor = FizzBuzzInteractorImplementation(statisticsRepository: repository)
+
+        XCTAssertEqual(interactor.statistics?.mostUsedRequest, Constants.request4)
+        XCTAssertEqual(interactor.statistics?.mostUsedRequestCount, 3)
+        XCTAssertEqual(interactor.statistics?.totalRequestsCount, 6)
+        XCTAssertEqual(interactor.statistics?.mostUsedRequestRate, 0.5)
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+    func testNonEmptyResult() {
+        let repository = StatisticsRepositoryImplementationNonEmpty()
+        let interactor = FizzBuzzInteractorImplementation(statisticsRepository: repository)
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+        let result = interactor.process(request: Constants.request2)
 
+        XCTAssertEqual(result.count, 7)
+        XCTAssertEqual(result.provider(1), "1")
+        XCTAssertEqual(result.provider(2), "test")
+        XCTAssertEqual(result.provider(3), "R")
+        XCTAssertEqual(result.provider(4), "test")
+        XCTAssertEqual(result.provider(5), "5")
+        XCTAssertEqual(result.provider(6), "Rtest")
+    }
 }
+
+private class StatisticsRepositoryImplementationEmpty: StatisticsRepository {
+    func record(request: FizzBuzzRequest) { }
+
+    var mostUsedRequest: FizzBuzzRequest? { nil }
+    var mostUsedRequestCount: Int? { nil }
+    var totalRequestsCount: Int { 0 }
+}
+
+private class StatisticsRepositoryImplementationNonEmpty: StatisticsRepository {
+    func record(request: FizzBuzzRequest) { }
+
+    var mostUsedRequest: FizzBuzzRequest? { Constants.request4 }
+    var mostUsedRequestCount: Int? { 3 }
+    var totalRequestsCount: Int { 6 }
+}
+

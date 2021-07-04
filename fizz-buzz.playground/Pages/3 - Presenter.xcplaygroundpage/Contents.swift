@@ -44,7 +44,11 @@ public protocol FizzBuzzViewContract {
 
 
 /*:
- Let's create the frameworks, structure and protocol, and let's have a look at the overall architecture drawing (Architecture.png) before moving to the implementation of the StatisticsRepositoryImplementation class
+ Let's create the frameworks, structure and protocol, and let's have a look at the overall architecture drawing (Architecture.png) before moving to the creation of the Repository framework and the implementation of the StatisticsRepositoryImplementation class and unit tests
+ */
+
+/*:
+ Let's create the tests and implementation in the Interactor framwork
  */
 
 //: [Next](@next)
