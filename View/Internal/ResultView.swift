@@ -41,6 +41,7 @@ extension ResultViewModel.Values: RandomAccessCollection {
 
 struct ResultView_Previews: PreviewProvider {
     static var previews: some View {
+        ResultView(result: .irrelevant)
         ResultView(result: .values(ResultViewModel.Values(count: 50) { _ in "T" }))
     }
 }

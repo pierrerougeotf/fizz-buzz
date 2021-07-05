@@ -51,6 +51,7 @@
 		494ADF2F2692940F009B840F /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF2E2692940F009B840F /* ResultView.swift */; };
 		494ADF3C269295FF009B840F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF3B269295FF009B840F /* Utils.swift */; };
 		494ADF3D26929603009B840F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF3B269295FF009B840F /* Utils.swift */; };
+		494ADF3F26929770009B840F /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF3E26929770009B840F /* StatisticsView.swift */; };
 		49AB2968268A156F00251092 /* fizz_buzzApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB2967268A156F00251092 /* fizz_buzzApp.swift */; };
 		49AB296A268A156F00251092 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB2969268A156F00251092 /* ContentView.swift */; };
 		49AB296C268A157400251092 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49AB296B268A157400251092 /* Assets.xcassets */; };
@@ -227,6 +228,7 @@
 		494ADF2E2692940F009B840F /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		494ADF3A269295E6009B840F /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = ../../../../Local/Localizable.strings; sourceTree = "<group>"; };
 		494ADF3B269295FF009B840F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		494ADF3E26929770009B840F /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		49AB2964268A156F00251092 /* fizz-buzz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fizz-buzz.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49AB2967268A156F00251092 /* fizz_buzzApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fizz_buzzApp.swift; sourceTree = "<group>"; };
 		49AB2969268A156F00251092 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -473,6 +475,7 @@
 			children = (
 				494ADF2C269292AC009B840F /* InputView.swift */,
 				494ADF2E2692940F009B840F /* ResultView.swift */,
+				494ADF3E26929770009B840F /* StatisticsView.swift */,
 			);
 			path = Internal;
 			sourceTree = "<group>";
@@ -1074,6 +1077,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				494ADEF5268F19BD009B840F /* FizzBuzzPresenter.swift in Sources */,
+				494ADF3F26929770009B840F /* StatisticsView.swift in Sources */,
 				494ADF2D269292AC009B840F /* InputView.swift in Sources */,
 				494ADF2F2692940F009B840F /* ResultView.swift in Sources */,
 				494ADF3D26929603009B840F /* Utils.swift in Sources */,
