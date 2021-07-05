@@ -55,4 +55,8 @@ public protocol FizzBuzzViewContract {
  Let's create the tests and implementations in the Presenter framework
  */
 
+/*:
+ Let's create the views
+ */
+
 //: [Next](@next)

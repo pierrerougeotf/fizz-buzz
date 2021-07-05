@@ -47,6 +47,7 @@
 		494ADF262692792A009B840F /* FizzBuzzViewModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF252692792A009B840F /* FizzBuzzViewModelMapper.swift */; };
 		494ADF2826927B06009B840F /* MapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF2726927B06009B840F /* MapperTests.swift */; };
 		494ADF2A269281BE009B840F /* FizzBuzzPresenterImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF29269281BE009B840F /* FizzBuzzPresenterImplementation.swift */; };
+		494ADF2D269292AC009B840F /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF2C269292AC009B840F /* InputView.swift */; };
 		49AB2968268A156F00251092 /* fizz_buzzApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB2967268A156F00251092 /* fizz_buzzApp.swift */; };
 		49AB296A268A156F00251092 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB2969268A156F00251092 /* ContentView.swift */; };
 		49AB296C268A157400251092 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49AB296B268A157400251092 /* Assets.xcassets */; };
@@ -219,6 +220,7 @@
 		494ADF252692792A009B840F /* FizzBuzzViewModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FizzBuzzViewModelMapper.swift; sourceTree = "<group>"; };
 		494ADF2726927B06009B840F /* MapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapperTests.swift; sourceTree = "<group>"; };
 		494ADF29269281BE009B840F /* FizzBuzzPresenterImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FizzBuzzPresenterImplementation.swift; sourceTree = "<group>"; };
+		494ADF2C269292AC009B840F /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		49AB2964268A156F00251092 /* fizz-buzz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fizz-buzz.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49AB2967268A156F00251092 /* fizz_buzzApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fizz_buzzApp.swift; sourceTree = "<group>"; };
 		49AB2969268A156F00251092 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -417,6 +419,7 @@
 		494ADEE8268F198E009B840F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				494ADF2B26929288009B840F /* Internal */,
 				494ADEF3268F19A2009B840F /* Requirements */,
 				494ADEE9268F198E009B840F /* View.h */,
 				494ADEEA268F198E009B840F /* Info.plist */,
@@ -455,6 +458,14 @@
 			isa = PBXGroup;
 			children = (
 				494ADF252692792A009B840F /* FizzBuzzViewModelMapper.swift */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
+		494ADF2B26929288009B840F /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				494ADF2C269292AC009B840F /* InputView.swift */,
 			);
 			path = Internal;
 			sourceTree = "<group>";
@@ -1054,6 +1065,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				494ADEF5268F19BD009B840F /* FizzBuzzPresenter.swift in Sources */,
+				494ADF2D269292AC009B840F /* InputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
