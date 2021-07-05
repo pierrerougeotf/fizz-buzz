@@ -60,8 +60,6 @@
 		49AB2968268A156F00251092 /* fizz_buzzApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB2967268A156F00251092 /* fizz_buzzApp.swift */; };
 		49AB296C268A157400251092 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49AB296B268A157400251092 /* Assets.xcassets */; };
 		49AB296F268A157400251092 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49AB296E268A157400251092 /* Preview Assets.xcassets */; };
-		49AB297A268A157500251092 /* fizz_buzzTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB2979268A157500251092 /* fizz_buzzTests.swift */; };
-		49AB2985268A157500251092 /* fizz_buzzUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB2984268A157500251092 /* fizz_buzzUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,20 +147,6 @@
 			remoteGlobalIDString = 494ADF0226926E67009B840F;
 			remoteInfo = Repository;
 		};
-		49AB2976268A157500251092 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 49AB295C268A156F00251092 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 49AB2963268A156F00251092;
-			remoteInfo = "fizz-buzz";
-		};
-		49AB2981268A157500251092 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 49AB295C268A156F00251092 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 49AB2963268A156F00251092;
-			remoteInfo = "fizz-buzz";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -242,12 +226,6 @@
 		49AB296B268A157400251092 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49AB296E268A157400251092 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		49AB2970268A157400251092 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		49AB2975268A157500251092 /* fizz-buzzTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "fizz-buzzTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		49AB2979268A157500251092 /* fizz_buzzTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fizz_buzzTests.swift; sourceTree = "<group>"; };
-		49AB297B268A157500251092 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		49AB2980268A157500251092 /* fizz-buzzUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "fizz-buzzUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		49AB2984268A157500251092 /* fizz_buzzUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fizz_buzzUITests.swift; sourceTree = "<group>"; };
-		49AB2986268A157500251092 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -327,20 +305,6 @@
 				494ADEA2268F098F009B840F /* Interactor.framework in Frameworks */,
 				494ADEEE268F198E009B840F /* View.framework in Frameworks */,
 				494ADEDB268F1917009B840F /* ViewModel.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		49AB2972268A157500251092 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		49AB297D268A157500251092 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,8 +466,6 @@
 				494ADE76268F0573009B840F /* PresenterTests */,
 				494ADEE8268F198E009B840F /* View */,
 				49AB2966268A156F00251092 /* fizz-buzz */,
-				49AB2978268A157500251092 /* fizz-buzzTests */,
-				49AB2983268A157500251092 /* fizz-buzzUITests */,
 				49AB2965268A156F00251092 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -512,8 +474,6 @@
 			isa = PBXGroup;
 			children = (
 				49AB2964268A156F00251092 /* fizz-buzz.app */,
-				49AB2975268A157500251092 /* fizz-buzzTests.xctest */,
-				49AB2980268A157500251092 /* fizz-buzzUITests.xctest */,
 				494ADE50268F0287009B840F /* Entity.framework */,
 				494ADE68268F0572009B840F /* Presenter.framework */,
 				494ADE70268F0573009B840F /* PresenterTests.xctest */,
@@ -548,24 +508,6 @@
 				49AB296E268A157400251092 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		49AB2978268A157500251092 /* fizz-buzzTests */ = {
-			isa = PBXGroup;
-			children = (
-				49AB2979268A157500251092 /* fizz_buzzTests.swift */,
-				49AB297B268A157500251092 /* Info.plist */,
-			);
-			path = "fizz-buzzTests";
-			sourceTree = "<group>";
-		};
-		49AB2983268A157500251092 /* fizz-buzzUITests */ = {
-			isa = PBXGroup;
-			children = (
-				49AB2984268A157500251092 /* fizz_buzzUITests.swift */,
-				49AB2986268A157500251092 /* Info.plist */,
-			);
-			path = "fizz-buzzUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -811,42 +753,6 @@
 			productReference = 49AB2964268A156F00251092 /* fizz-buzz.app */;
 			productType = "com.apple.product-type.application";
 		};
-		49AB2974268A157500251092 /* fizz-buzzTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 49AB298C268A157500251092 /* Build configuration list for PBXNativeTarget "fizz-buzzTests" */;
-			buildPhases = (
-				49AB2971268A157500251092 /* Sources */,
-				49AB2972268A157500251092 /* Frameworks */,
-				49AB2973268A157500251092 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				49AB2977268A157500251092 /* PBXTargetDependency */,
-			);
-			name = "fizz-buzzTests";
-			productName = "fizz-buzzTests";
-			productReference = 49AB2975268A157500251092 /* fizz-buzzTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		49AB297F268A157500251092 /* fizz-buzzUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 49AB298F268A157500251092 /* Build configuration list for PBXNativeTarget "fizz-buzzUITests" */;
-			buildPhases = (
-				49AB297C268A157500251092 /* Sources */,
-				49AB297D268A157500251092 /* Frameworks */,
-				49AB297E268A157500251092 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				49AB2982268A157500251092 /* PBXTargetDependency */,
-			);
-			name = "fizz-buzzUITests";
-			productName = "fizz-buzzUITests";
-			productReference = 49AB2980268A157500251092 /* fizz-buzzUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -895,14 +801,6 @@
 					49AB2963268A156F00251092 = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
-					49AB2974268A157500251092 = {
-						CreatedOnToolsVersion = 12.5.1;
-						TestTargetID = 49AB2963268A156F00251092;
-					};
-					49AB297F268A157500251092 = {
-						CreatedOnToolsVersion = 12.5.1;
-						TestTargetID = 49AB2963268A156F00251092;
-					};
 				};
 			};
 			buildConfigurationList = 49AB295F268A156F00251092 /* Build configuration list for PBXProject "fizz-buzz" */;
@@ -919,8 +817,6 @@
 			projectRoot = "";
 			targets = (
 				49AB2963268A156F00251092 /* fizz-buzz */,
-				49AB2974268A157500251092 /* fizz-buzzTests */,
-				49AB297F268A157500251092 /* fizz-buzzUITests */,
 				494ADE4F268F0287009B840F /* Entity */,
 				494ADE67268F0572009B840F /* Presenter */,
 				494ADE6F268F0573009B840F /* PresenterTests */,
@@ -1005,20 +901,6 @@
 				49AB296F268A157400251092 /* Preview Assets.xcassets in Resources */,
 				494ADF482692A176009B840F /* Localizable.strings in Resources */,
 				49AB296C268A157400251092 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		49AB2973268A157500251092 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		49AB297E268A157500251092 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1124,22 +1006,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		49AB2971268A157500251092 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				49AB297A268A157500251092 /* fizz_buzzTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		49AB297C268A157500251092 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				49AB2985268A157500251092 /* fizz_buzzUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1202,16 +1068,6 @@
 			isa = PBXTargetDependency;
 			target = 494ADF0226926E67009B840F /* Repository */;
 			targetProxy = 494ADF1626926E68009B840F /* PBXContainerItemProxy */;
-		};
-		49AB2977268A157500251092 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 49AB2963268A156F00251092 /* fizz-buzz */;
-			targetProxy = 49AB2976268A157500251092 /* PBXContainerItemProxy */;
-		};
-		49AB2982268A157500251092 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 49AB2963268A156F00251092 /* fizz-buzz */;
-			targetProxy = 49AB2981268A157500251092 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1840,90 +1696,6 @@
 			};
 			name = Release;
 		};
-		49AB298D268A157500251092 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4AA4AV2F4H;
-				INFOPLIST_FILE = "fizz-buzzTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fabernovel.rougeot.fizz-buzzTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/fizz-buzz.app/fizz-buzz";
-			};
-			name = Debug;
-		};
-		49AB298E268A157500251092 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4AA4AV2F4H;
-				INFOPLIST_FILE = "fizz-buzzTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fabernovel.rougeot.fizz-buzzTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/fizz-buzz.app/fizz-buzz";
-			};
-			name = Release;
-		};
-		49AB2990268A157500251092 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4AA4AV2F4H;
-				INFOPLIST_FILE = "fizz-buzzUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fabernovel.rougeot.fizz-buzzUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "fizz-buzz";
-			};
-			name = Debug;
-		};
-		49AB2991268A157500251092 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4AA4AV2F4H;
-				INFOPLIST_FILE = "fizz-buzzUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fabernovel.rougeot.fizz-buzzUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "fizz-buzz";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2022,24 +1794,6 @@
 			buildConfigurations = (
 				49AB298A268A157500251092 /* Debug */,
 				49AB298B268A157500251092 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		49AB298C268A157500251092 /* Build configuration list for PBXNativeTarget "fizz-buzzTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				49AB298D268A157500251092 /* Debug */,
-				49AB298E268A157500251092 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		49AB298F268A157500251092 /* Build configuration list for PBXNativeTarget "fizz-buzzUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				49AB2990268A157500251092 /* Debug */,
-				49AB2991268A157500251092 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
