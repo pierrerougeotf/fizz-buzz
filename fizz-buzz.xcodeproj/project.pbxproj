@@ -492,18 +492,18 @@
 		49AB295B268A156F00251092 = {
 			isa = PBXGroup;
 			children = (
-				49AB2966268A156F00251092 /* fizz-buzz */,
-				49AB2978268A157500251092 /* fizz-buzzTests */,
-				49AB2983268A157500251092 /* fizz-buzzUITests */,
 				494ADE51268F0287009B840F /* Entity */,
-				494ADE69268F0572009B840F /* Presenter */,
-				494ADE76268F0573009B840F /* PresenterTests */,
+				494ADF0426926E67009B840F /* Repository */,
+				494ADF1126926E67009B840F /* RepositoryTests */,
 				494ADE8E268F098F009B840F /* Interactor */,
 				494ADE9B268F098F009B840F /* InteractorTests */,
 				494ADED5268F1917009B840F /* ViewModel */,
+				494ADE69268F0572009B840F /* Presenter */,
+				494ADE76268F0573009B840F /* PresenterTests */,
 				494ADEE8268F198E009B840F /* View */,
-				494ADF0426926E67009B840F /* Repository */,
-				494ADF1126926E67009B840F /* RepositoryTests */,
+				49AB2966268A156F00251092 /* fizz-buzz */,
+				49AB2978268A157500251092 /* fizz-buzzTests */,
+				49AB2983268A157500251092 /* fizz-buzzUITests */,
 				49AB2965268A156F00251092 /* Products */,
 			);
 			sourceTree = "<group>";
