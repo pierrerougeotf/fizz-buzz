@@ -48,6 +48,9 @@
 		494ADF2826927B06009B840F /* MapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF2726927B06009B840F /* MapperTests.swift */; };
 		494ADF2A269281BE009B840F /* FizzBuzzPresenterImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF29269281BE009B840F /* FizzBuzzPresenterImplementation.swift */; };
 		494ADF2D269292AC009B840F /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF2C269292AC009B840F /* InputView.swift */; };
+		494ADF2F2692940F009B840F /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF2E2692940F009B840F /* ResultView.swift */; };
+		494ADF3C269295FF009B840F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF3B269295FF009B840F /* Utils.swift */; };
+		494ADF3D26929603009B840F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF3B269295FF009B840F /* Utils.swift */; };
 		49AB2968268A156F00251092 /* fizz_buzzApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB2967268A156F00251092 /* fizz_buzzApp.swift */; };
 		49AB296A268A156F00251092 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB2969268A156F00251092 /* ContentView.swift */; };
 		49AB296C268A157400251092 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49AB296B268A157400251092 /* Assets.xcassets */; };
@@ -221,6 +224,9 @@
 		494ADF2726927B06009B840F /* MapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapperTests.swift; sourceTree = "<group>"; };
 		494ADF29269281BE009B840F /* FizzBuzzPresenterImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FizzBuzzPresenterImplementation.swift; sourceTree = "<group>"; };
 		494ADF2C269292AC009B840F /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		494ADF2E2692940F009B840F /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		494ADF3A269295E6009B840F /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = ../../../../Local/Localizable.strings; sourceTree = "<group>"; };
+		494ADF3B269295FF009B840F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		49AB2964268A156F00251092 /* fizz-buzz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fizz-buzz.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49AB2967268A156F00251092 /* fizz_buzzApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fizz_buzzApp.swift; sourceTree = "<group>"; };
 		49AB2969268A156F00251092 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -466,6 +472,7 @@
 			isa = PBXGroup;
 			children = (
 				494ADF2C269292AC009B840F /* InputView.swift */,
+				494ADF2E2692940F009B840F /* ResultView.swift */,
 			);
 			path = Internal;
 			sourceTree = "<group>";
@@ -511,6 +518,8 @@
 		49AB2966268A156F00251092 /* fizz-buzz */ = {
 			isa = PBXGroup;
 			children = (
+				494ADF3A269295E6009B840F /* Localizable.strings */,
+				494ADF3B269295FF009B840F /* Utils.swift */,
 				49AB2967268A156F00251092 /* fizz_buzzApp.swift */,
 				49AB2969268A156F00251092 /* ContentView.swift */,
 				49AB296B268A157400251092 /* Assets.xcassets */,
@@ -1066,6 +1075,8 @@
 			files = (
 				494ADEF5268F19BD009B840F /* FizzBuzzPresenter.swift in Sources */,
 				494ADF2D269292AC009B840F /* InputView.swift in Sources */,
+				494ADF2F2692940F009B840F /* ResultView.swift in Sources */,
+				494ADF3D26929603009B840F /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1091,6 +1102,7 @@
 			files = (
 				49AB296A268A156F00251092 /* ContentView.swift in Sources */,
 				49AB2968268A156F00251092 /* fizz_buzzApp.swift in Sources */,
+				494ADF3C269295FF009B840F /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
