@@ -1,5 +1,4 @@
 //: [Previous](@previous)
-
 /*:
  Whereas the model of the application could, for a simple application like the current one, all stand in our interactor framework, we make the choice to split this domain in two modules :
  - one responsible for the logic of the model, stateless, mostly independant of the operating system in some way, cross-platform at some extents. All business rules stand in this module.

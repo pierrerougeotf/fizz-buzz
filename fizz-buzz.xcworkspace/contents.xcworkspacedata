@@ -5,9 +5,6 @@
       location = "group:README.md">
    </FileRef>
    <FileRef
-      location = "group:Architecture.png">
-   </FileRef>
-   <FileRef
       location = "group:fizz-buzz.playground">
    </FileRef>
    <FileRef
