@@ -5,14 +5,7 @@
 //  Created by Pierre Rougeot on 02/07/2021.
 //
 
-public protocol FizzBuzzParameter {
-    static var int1: Self { get }
-    static var int2: Self { get }
-    static var limit: Self { get }
-    static var str1: Self { get }
-    static var str2: Self { get }
-
-}
+import ViewModel
 
 public protocol FizzBuzzPresenter {
     /// Asks the presenter to go to init state

@@ -17,14 +17,6 @@ public class FizzBuzzPresenterImplementation {
 
     // MARK: - FizzBuzzPresenter
 
-    public enum FizzBuzzParameter {
-        case int1
-        case int2
-        case limit
-        case str1
-        case str2
-    }
-
     public func start() {
         updateUI(for: self.request)
     }
@@ -59,7 +51,7 @@ private extension FizzBuzzRequest {
     ///   - parameter: modified parameter
     ///   - stringValue: value of modified parameter as string
     /// - Returns: returns update request, or nil if parameter value is invalid
-    func update(_ parameter: FizzBuzzPresenterImplementation.FizzBuzzParameter,
+    func update(_ parameter: FizzBuzzParameter,
                 with stringValue: String) -> FizzBuzzRequest? {
         var updatedRequest = self
         switch parameter {
@@ -83,7 +75,7 @@ private extension String {
     }
 }
 
-private extension FizzBuzzPresenterImplementation.FizzBuzzParameter {
+private extension FizzBuzzParameter {
     var intKeyPath: WritableKeyPath<FizzBuzzRequest, Int?>? {
         switch self {
         case .int1:

@@ -52,6 +52,9 @@
 		494ADF3C269295FF009B840F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF3B269295FF009B840F /* Utils.swift */; };
 		494ADF3D26929603009B840F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF3B269295FF009B840F /* Utils.swift */; };
 		494ADF3F26929770009B840F /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF3E26929770009B840F /* StatisticsView.swift */; };
+		494ADF4126929891009B840F /* FizzBuzzView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF4026929891009B840F /* FizzBuzzView.swift */; };
+		494ADF4326929AD9009B840F /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF4226929AD9009B840F /* Assembly.swift */; };
+		494ADF4526929ED0009B840F /* FizzBuzzParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF4426929ECF009B840F /* FizzBuzzParameter.swift */; };
 		49AB2968268A156F00251092 /* fizz_buzzApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB2967268A156F00251092 /* fizz_buzzApp.swift */; };
 		49AB296A268A156F00251092 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB2969268A156F00251092 /* ContentView.swift */; };
 		49AB296C268A157400251092 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49AB296B268A157400251092 /* Assets.xcassets */; };
@@ -229,6 +232,9 @@
 		494ADF3A269295E6009B840F /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = ../../../../Local/Localizable.strings; sourceTree = "<group>"; };
 		494ADF3B269295FF009B840F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		494ADF3E26929770009B840F /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
+		494ADF4026929891009B840F /* FizzBuzzView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FizzBuzzView.swift; sourceTree = "<group>"; };
+		494ADF4226929AD9009B840F /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
+		494ADF4426929ECF009B840F /* FizzBuzzParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FizzBuzzParameter.swift; sourceTree = "<group>"; };
 		49AB2964268A156F00251092 /* fizz-buzz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fizz-buzz.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49AB2967268A156F00251092 /* fizz_buzzApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fizz_buzzApp.swift; sourceTree = "<group>"; };
 		49AB2969268A156F00251092 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -420,6 +426,7 @@
 				494ADEF626925FDE009B840F /* InputViewModel.swift */,
 				494ADEF826926001009B840F /* ResultViewModel.swift */,
 				494ADEFA2692602B009B840F /* StatisticsViewModel.swift */,
+				494ADF4426929ECF009B840F /* FizzBuzzParameter.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -431,6 +438,7 @@
 				494ADEF3268F19A2009B840F /* Requirements */,
 				494ADEE9268F198E009B840F /* View.h */,
 				494ADEEA268F198E009B840F /* Info.plist */,
+				494ADF4026929891009B840F /* FizzBuzzView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -528,6 +536,7 @@
 				49AB296B268A157400251092 /* Assets.xcassets */,
 				49AB2970268A157400251092 /* Info.plist */,
 				49AB296D268A157400251092 /* Preview Content */,
+				494ADF4226929AD9009B840F /* Assembly.swift */,
 			);
 			path = "fizz-buzz";
 			sourceTree = "<group>";
@@ -1068,6 +1077,7 @@
 				494ADEF726925FDE009B840F /* InputViewModel.swift in Sources */,
 				494ADEF926926001009B840F /* ResultViewModel.swift in Sources */,
 				494ADEE1268F1933009B840F /* FizzBuzzViewModel.swift in Sources */,
+				494ADF4526929ED0009B840F /* FizzBuzzParameter.swift in Sources */,
 				494ADEFB2692602B009B840F /* StatisticsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1076,6 +1086,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				494ADF4126929891009B840F /* FizzBuzzView.swift in Sources */,
 				494ADEF5268F19BD009B840F /* FizzBuzzPresenter.swift in Sources */,
 				494ADF3F26929770009B840F /* StatisticsView.swift in Sources */,
 				494ADF2D269292AC009B840F /* InputView.swift in Sources */,
@@ -1105,6 +1116,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49AB296A268A156F00251092 /* ContentView.swift in Sources */,
+				494ADF4326929AD9009B840F /* Assembly.swift in Sources */,
 				49AB2968268A156F00251092 /* fizz_buzzApp.swift in Sources */,
 				494ADF3C269295FF009B840F /* Utils.swift in Sources */,
 			);
@@ -1791,7 +1803,7 @@
 				DEVELOPMENT_TEAM = 4AA4AV2F4H;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "fizz-buzz/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1814,7 +1826,7 @@
 				DEVELOPMENT_TEAM = 4AA4AV2F4H;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "fizz-buzz/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
