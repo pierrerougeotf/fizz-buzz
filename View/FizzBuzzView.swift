@@ -69,6 +69,11 @@ public struct FizzBuzzView: View {
 
     @ObservedObject private var viewModel: FizzBuzzViewModelProxy
 
+    /// helper method to have the view read the data from the updated view model and to have the view trigger an intent call to the presenter
+    /// - Parameters:
+    ///   - parameter: one of the form field
+    ///   - viewModel: the viewModel (proxy) being configured by the viewConctract
+    /// - Returns: <#description#>
     private func binding(for parameter: FizzBuzzParameter, of viewModel: FizzBuzzViewModelProxy) -> Binding<String> {
         Binding<String> {
             parameter.value(for: viewModel)
@@ -94,6 +99,8 @@ private class FizzBuzzViewModelProxy: ObservableObject {
 }
 
 private extension FizzBuzzViewModelProxy {
+    /// An update of the proxy triggers a redraw of the appropriate part of the view
+    /// - Parameter viewModel:the new parameters
     func configure(with viewModel: FizzBuzzViewModel) {
         input = viewModel.input
         result = viewModel.result
