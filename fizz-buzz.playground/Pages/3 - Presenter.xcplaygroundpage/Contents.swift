@@ -48,7 +48,11 @@ public protocol FizzBuzzViewContract {
  */
 
 /*:
- Let's create the tests and implementation in the Interactor framwork
+ Let's create the tests and implementation in the Interactor framework
+ */
+
+/*:
+ Let's create the tests and implementations in the Presenter framework
  */
 
 //: [Next](@next)

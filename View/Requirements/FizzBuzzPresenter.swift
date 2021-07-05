@@ -5,12 +5,13 @@
 //  Created by Pierre Rougeot on 02/07/2021.
 //
 
-public enum FizzBuzzParameter {
-    case int1
-    case int2
-    case limit
-    case str1
-    case str2
+public protocol FizzBuzzParameter {
+    static var int1: Self { get }
+    static var int2: Self { get }
+    static var limit: Self { get }
+    static var str1: Self { get }
+    static var str2: Self { get }
+
 }
 
 public protocol FizzBuzzPresenter {
