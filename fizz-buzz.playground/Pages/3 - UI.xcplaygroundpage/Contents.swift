@@ -48,7 +48,7 @@ public protocol FizzBuzzViewContract {
 
  ![The global frameworks architecture](Architecture.png)
 
- Even though the number of frameworks and modules may seem a litlle bit complex for such a simple project, it shows how multiple developers could easily work together simultaneously on some complex ones, without any disturbance. This architecture allows any update from a GUI to a command line interface for instance. Alternatively we also could easily update of the View framework, to move from Swift UI to UIKit, without touching any line of code of the other frameworks.
+ Even though the number of frameworks and modules may seem a litlle bit complex for such a simple project, it shows how multiple developers could easily work together simultaneously on some complex ones, without any disturbance. This architecture allows any update from a GUI to a command line interface for instance. Alternatively we also could easily update the View framework, to move from Swift UI to UIKit, without touching any line of code of the other frameworks.
  Every boundary, protocol  can however be removed, any frameworks can be merged, if required,
  */
 
@@ -64,7 +64,7 @@ public protocol FizzBuzzViewContract {
  Let's create the views
  */
 
-/*
+/*:
  Let's create the Assemby.swift file, in charge of ensuring all the protocol conformances, and the Factory.swift, in charge of instanciating all structures.
  */
 

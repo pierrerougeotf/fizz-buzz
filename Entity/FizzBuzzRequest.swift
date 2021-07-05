@@ -40,6 +40,6 @@ public struct FizzBuzzRequest {
     }
 }
 
-// The protocol implementation of Hashable and Equatable are automatically synthezied here
+// The protocol implementation of Hashable and Equatable are automatically synthesized here
 // This protocol conformance is required due to the implementation of StatisticsRepositoryImplementation
 extension FizzBuzzRequest: Hashable { }
