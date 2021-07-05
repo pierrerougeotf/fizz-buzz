@@ -25,4 +25,4 @@ No specification is provided regarding the input data limits and size. Arbitrary
  We will use SwiftUI previews for the UI development
  We will move some playground driven development code to unit test for maintenance on non-regression goal.
  
- Please start reading the introduction playground
+ Please, open the fizz-buzz.xcworkspace document, and start reading the introduction playground
