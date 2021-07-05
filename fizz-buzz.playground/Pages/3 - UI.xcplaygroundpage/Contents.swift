@@ -59,4 +59,8 @@ public protocol FizzBuzzViewContract {
  Let's create the views
  */
 
+/*
+ Let's create the Assemby.swift file, in charge of ensuring all the protocol conformances, and the Factory.swift, in charge of instanciating all structures.
+ */
+
 //: [Next](@next)

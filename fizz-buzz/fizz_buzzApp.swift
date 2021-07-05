@@ -11,7 +11,7 @@ import SwiftUI
 struct fizz_buzzApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Factory.fizzBuzzView
         }
     }
 }
