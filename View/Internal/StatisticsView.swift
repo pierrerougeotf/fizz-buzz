@@ -22,7 +22,7 @@ struct StatisticsView: View {
             HStack {
                 Text(data.resultText)
                 VStack {
-                    Pie(endAngle: Angle(degrees: -data.ratioDegrees))
+                    PieView(rate: 0.4)
                     Text(data.description)
                 }
             }

@@ -57,6 +57,10 @@
 		494ADF4526929ED0009B840F /* FizzBuzzParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF4426929ECF009B840F /* FizzBuzzParameter.swift */; };
 		494ADF472692A0D3009B840F /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF462692A0D3009B840F /* Factory.swift */; };
 		494ADF482692A176009B840F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 494ADF3A269295E6009B840F /* Localizable.strings */; };
+		4958DFB226946791002C2863 /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4958DFB126946791002C2863 /* StyleKit.swift */; };
+		4958DFB626946AFC002C2863 /* PieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4958DFB526946AFC002C2863 /* PieView.swift */; };
+		4958DFC326947215002C2863 /* Telekinesis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4958DFC1269471D1002C2863 /* Telekinesis.framework */; };
+		4958DFC42694722B002C2863 /* Telekinesis.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4958DFC1269471D1002C2863 /* Telekinesis.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		49AB2968268A156F00251092 /* fizz_buzzApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB2967268A156F00251092 /* fizz_buzzApp.swift */; };
 		49AB296C268A157400251092 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49AB296B268A157400251092 /* Assets.xcassets */; };
 		49AB296F268A157400251092 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49AB296E268A157400251092 /* Preview Assets.xcassets */; };
@@ -156,6 +160,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				4958DFC42694722B002C2863 /* Telekinesis.framework in Embed Frameworks */,
 				494ADE58268F0287009B840F /* Entity.framework in Embed Frameworks */,
 				494ADE7E268F0573009B840F /* Presenter.framework in Embed Frameworks */,
 				494ADF1926926E68009B840F /* Repository.framework in Embed Frameworks */,
@@ -221,6 +226,9 @@
 		494ADF4226929AD9009B840F /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		494ADF4426929ECF009B840F /* FizzBuzzParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FizzBuzzParameter.swift; sourceTree = "<group>"; };
 		494ADF462692A0D3009B840F /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
+		4958DFB126946791002C2863 /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
+		4958DFB526946AFC002C2863 /* PieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieView.swift; sourceTree = "<group>"; };
+		4958DFC1269471D1002C2863 /* Telekinesis.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Telekinesis.framework; sourceTree = "<group>"; };
 		49AB2964268A156F00251092 /* fizz-buzz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fizz-buzz.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49AB2967268A156F00251092 /* fizz_buzzApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fizz_buzzApp.swift; sourceTree = "<group>"; };
 		49AB296B268A157400251092 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -299,6 +307,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4958DFC326947215002C2863 /* Telekinesis.framework in Frameworks */,
 				494ADE57268F0287009B840F /* Entity.framework in Frameworks */,
 				494ADE7D268F0573009B840F /* Presenter.framework in Frameworks */,
 				494ADF1826926E68009B840F /* Repository.framework in Frameworks */,
@@ -446,9 +455,11 @@
 		494ADF2B26929288009B840F /* Internal */ = {
 			isa = PBXGroup;
 			children = (
+				4958DFB126946791002C2863 /* StyleKit.swift */,
 				494ADF2C269292AC009B840F /* InputView.swift */,
 				494ADF2E2692940F009B840F /* ResultView.swift */,
 				494ADF3E26929770009B840F /* StatisticsView.swift */,
+				4958DFB526946AFC002C2863 /* PieView.swift */,
 			);
 			path = Internal;
 			sourceTree = "<group>";
@@ -490,6 +501,7 @@
 		49AB2966268A156F00251092 /* fizz-buzz */ = {
 			isa = PBXGroup;
 			children = (
+				4958DFC1269471D1002C2863 /* Telekinesis.framework */,
 				494ADF3A269295E6009B840F /* Localizable.strings */,
 				494ADF3B269295FF009B840F /* Utils.swift */,
 				49AB2967268A156F00251092 /* fizz_buzzApp.swift */,
@@ -970,6 +982,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4958DFB226946791002C2863 /* StyleKit.swift in Sources */,
+				4958DFB626946AFC002C2863 /* PieView.swift in Sources */,
 				494ADF4126929891009B840F /* FizzBuzzView.swift in Sources */,
 				494ADEF5268F19BD009B840F /* FizzBuzzPresenter.swift in Sources */,
 				494ADF3F26929770009B840F /* StatisticsView.swift in Sources */,
@@ -1391,6 +1405,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/View/Internal",
+				);
 				INFOPLIST_FILE = View/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1420,6 +1438,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/View/Internal",
+				);
 				INFOPLIST_FILE = View/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1660,6 +1682,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"fizz-buzz/Preview Content\"";
 				DEVELOPMENT_TEAM = 4AA4AV2F4H;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/fizz-buzz",
+				);
 				INFOPLIST_FILE = "fizz-buzz/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1683,6 +1709,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"fizz-buzz/Preview Content\"";
 				DEVELOPMENT_TEAM = 4AA4AV2F4H;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/fizz-buzz",
+				);
 				INFOPLIST_FILE = "fizz-buzz/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
