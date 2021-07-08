@@ -73,7 +73,7 @@ public struct FizzBuzzView: View {
     /// - Parameters:
     ///   - parameter: one of the form field
     ///   - viewModel: the viewModel (proxy) being configured by the viewConctract
-    /// - Returns: <#description#>
+    /// - Returns: the binding structure
     private func binding(for parameter: FizzBuzzParameter, of viewModel: FizzBuzzViewModelProxy) -> Binding<String> {
         Binding<String> {
             parameter.value(for: viewModel)
@@ -121,6 +121,22 @@ private extension FizzBuzzParameter {
             return viewModel.input.str1
         case .str2:
             return viewModel.input.str2
+        }
+    }
+}
+
+struct FizzBuzzView_Previews: PreviewProvider {
+    static var previews: some View {
+        FizzBuzzView(presenter: PresenterImplementation())
+    }
+
+    private class PresenterImplementation: FizzBuzzPresenter, ObservableObject {
+        func start() {
+            print("start")
+        }
+
+        func requestUpdate(of parameter: FizzBuzzParameter, to newValue: String) {
+            print("requestUpdate of \(parameter) to \(newValue)")
         }
     }
 }
