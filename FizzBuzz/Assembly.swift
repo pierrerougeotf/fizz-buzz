@@ -15,4 +15,4 @@ import View
 extension Repository.StatisticsRepositoryImplementation: Interactor.StatisticsRepository { }
 extension Interactor.FizzBuzzInteractorImplementation: Presenter.FizzBuzzInteractor { }
 extension Presenter.FizzBuzzPresenterImplementation: View.FizzBuzzPresenter { }
-extension View.FizzBuzzView: Presenter.FizzBuzzViewContract { }
+extension View.FizzBuzzViewController: Presenter.FizzBuzzViewContract { }

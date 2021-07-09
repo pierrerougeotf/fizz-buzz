@@ -15,10 +15,11 @@ enum Factory {
     static let fizzBuzzInteractor: FizzBuzzInteractor = FizzBuzzInteractorImplementation(
         statisticsRepository: statisticsRepository
     )
-    static let (fizzBuzzPresenter, fizzBuzzView): (FizzBuzzPresenter, FizzBuzzView) = {
+    static let (fizzBuzzPresenter, fizzBuzzViewController): (FizzBuzzPresenter, FizzBuzzViewController) = {
         let presenter = FizzBuzzPresenterImplementation(fizzBuzzInteractor: fizzBuzzInteractor)
-        let view = FizzBuzzView(presenter: presenter)
-        presenter.viewContract = view
-        return (presenter, view)
+        let viewController = FizzBuzzViewController.fromNib
+        viewController.presenter = presenter
+        presenter.viewContract = viewController
+        return (presenter, viewController)
     }()
 }
