@@ -3,94 +3,39 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		494ADE54268F0287009B840F /* Entity.h in Headers */ = {isa = PBXBuildFile; fileRef = 494ADE52268F0287009B840F /* Entity.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		494ADE57268F0287009B840F /* Entity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 494ADE50268F0287009B840F /* Entity.framework */; };
-		494ADE58268F0287009B840F /* Entity.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 494ADE50268F0287009B840F /* Entity.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		494ADE5E268F02CB009B840F /* FizzBuzzRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADE5D268F02CB009B840F /* FizzBuzzRequest.swift */; };
 		494ADE60268F0379009B840F /* FizzBuzzResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADE5F268F0379009B840F /* FizzBuzzResult.swift */; };
 		494ADE62268F043F009B840F /* FizzBuzzStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADE61268F043F009B840F /* FizzBuzzStatistics.swift */; };
-		494ADE71268F0573009B840F /* Presenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 494ADE68268F0572009B840F /* Presenter.framework */; };
 		494ADE78268F0573009B840F /* PresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADE77268F0573009B840F /* PresenterTests.swift */; };
-		494ADE7A268F0573009B840F /* Presenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 494ADE6A268F0572009B840F /* Presenter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		494ADE7D268F0573009B840F /* Presenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 494ADE68268F0572009B840F /* Presenter.framework */; };
-		494ADE7E268F0573009B840F /* Presenter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 494ADE68268F0572009B840F /* Presenter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		494ADE87268F05AD009B840F /* FizzBuzzInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADE86268F05AD009B840F /* FizzBuzzInteractor.swift */; };
 		494ADE96268F098F009B840F /* Interactor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 494ADE8D268F098F009B840F /* Interactor.framework */; };
 		494ADE9D268F098F009B840F /* InteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADE9C268F098F009B840F /* InteractorTests.swift */; };
 		494ADE9F268F098F009B840F /* Interactor.h in Headers */ = {isa = PBXBuildFile; fileRef = 494ADE8F268F098F009B840F /* Interactor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		494ADEA2268F098F009B840F /* Interactor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 494ADE8D268F098F009B840F /* Interactor.framework */; };
-		494ADEA3268F098F009B840F /* Interactor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 494ADE8D268F098F009B840F /* Interactor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		494ADEAC268F09DA009B840F /* StatisticsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADEAB268F09DA009B840F /* StatisticsRepository.swift */; };
-		494ADED8268F1917009B840F /* ViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 494ADED6268F1917009B840F /* ViewModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		494ADEDB268F1917009B840F /* ViewModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 494ADED4268F1917009B840F /* ViewModel.framework */; };
-		494ADEDC268F1917009B840F /* ViewModel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 494ADED4268F1917009B840F /* ViewModel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		494ADEE1268F1933009B840F /* FizzBuzzViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADEE0268F1933009B840F /* FizzBuzzViewModel.swift */; };
-		494ADEEB268F198E009B840F /* View.h in Headers */ = {isa = PBXBuildFile; fileRef = 494ADEE9268F198E009B840F /* View.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		494ADEEE268F198E009B840F /* View.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 494ADEE7268F198E009B840F /* View.framework */; };
-		494ADEEF268F198E009B840F /* View.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 494ADEE7268F198E009B840F /* View.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		494ADEF5268F19BD009B840F /* FizzBuzzPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADEF4268F19BD009B840F /* FizzBuzzPresenter.swift */; };
-		494ADEF726925FDE009B840F /* InputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADEF626925FDE009B840F /* InputViewModel.swift */; };
-		494ADEF926926001009B840F /* ResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADEF826926001009B840F /* ResultViewModel.swift */; };
-		494ADEFB2692602B009B840F /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADEFA2692602B009B840F /* StatisticsViewModel.swift */; };
-		494ADEFD26926360009B840F /* FizzBuzzViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADEFC26926360009B840F /* FizzBuzzViewContract.swift */; };
 		494ADF0C26926E67009B840F /* Repository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 494ADF0326926E67009B840F /* Repository.framework */; };
 		494ADF1326926E67009B840F /* RepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF1226926E67009B840F /* RepositoryTests.swift */; };
 		494ADF1526926E67009B840F /* Repository.h in Headers */ = {isa = PBXBuildFile; fileRef = 494ADF0526926E67009B840F /* Repository.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		494ADF1826926E68009B840F /* Repository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 494ADF0326926E67009B840F /* Repository.framework */; };
-		494ADF1926926E68009B840F /* Repository.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 494ADF0326926E67009B840F /* Repository.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		494ADF2126926EB6009B840F /* StatisticsRepositoryImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF2026926EB6009B840F /* StatisticsRepositoryImplementation.swift */; };
 		494ADF23269272D7009B840F /* FizzBuzzInteractorImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF22269272D7009B840F /* FizzBuzzInteractorImplementation.swift */; };
-		494ADF262692792A009B840F /* FizzBuzzViewModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF252692792A009B840F /* FizzBuzzViewModelMapper.swift */; };
 		494ADF2826927B06009B840F /* MapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF2726927B06009B840F /* MapperTests.swift */; };
-		494ADF2A269281BE009B840F /* FizzBuzzPresenterImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF29269281BE009B840F /* FizzBuzzPresenterImplementation.swift */; };
-		494ADF2D269292AC009B840F /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF2C269292AC009B840F /* InputView.swift */; };
-		494ADF2F2692940F009B840F /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF2E2692940F009B840F /* ResultView.swift */; };
-		494ADF3C269295FF009B840F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF3B269295FF009B840F /* Utils.swift */; };
-		494ADF3D26929603009B840F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF3B269295FF009B840F /* Utils.swift */; };
-		494ADF3F26929770009B840F /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF3E26929770009B840F /* StatisticsView.swift */; };
-		494ADF4126929891009B840F /* FizzBuzzView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF4026929891009B840F /* FizzBuzzView.swift */; };
-		494ADF4326929AD9009B840F /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF4226929AD9009B840F /* Assembly.swift */; };
-		494ADF4526929ED0009B840F /* FizzBuzzParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF4426929ECF009B840F /* FizzBuzzParameter.swift */; };
-		494ADF472692A0D3009B840F /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ADF462692A0D3009B840F /* Factory.swift */; };
-		494ADF482692A176009B840F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 494ADF3A269295E6009B840F /* Localizable.strings */; };
-		49AB2968268A156F00251092 /* fizz_buzzApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB2967268A156F00251092 /* fizz_buzzApp.swift */; };
-		49AB296C268A157400251092 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49AB296B268A157400251092 /* Assets.xcassets */; };
-		49AB296F268A157400251092 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49AB296E268A157400251092 /* Preview Assets.xcassets */; };
+		49F9A079269839B000EE6ED3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F9A078269839B000EE6ED3 /* main.swift */; };
+		49F9A084269839F500EE6ED3 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F9A083269839F500EE6ED3 /* Assembly.swift */; };
+		49F9A08726983AE000EE6ED3 /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 49F9A08626983AE000EE6ED3 /* ArgumentParser */; };
+		49F9A08926983AF200EE6ED3 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F9A08826983AF200EE6ED3 /* Factory.swift */; };
+		49F9A08C26983C4F00EE6ED3 /* FizzBuzzInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F9A08B26983C4800EE6ED3 /* FizzBuzzInteractor.swift */; };
+		49F9A08E26983CF300EE6ED3 /* Entity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 494ADE50268F0287009B840F /* Entity.framework */; };
+		49F9A08F26983CF300EE6ED3 /* Entity.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 494ADE50268F0287009B840F /* Entity.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		49F9A09226983CF300EE6ED3 /* Interactor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 494ADE8D268F098F009B840F /* Interactor.framework */; };
+		49F9A09326983CF300EE6ED3 /* Interactor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 494ADE8D268F098F009B840F /* Interactor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		49F9A09626983CF300EE6ED3 /* Repository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 494ADF0326926E67009B840F /* Repository.framework */; };
+		49F9A09726983CF300EE6ED3 /* Repository.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 494ADF0326926E67009B840F /* Repository.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		494ADE55268F0287009B840F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 49AB295C268A156F00251092 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 494ADE4F268F0287009B840F;
-			remoteInfo = Entity;
-		};
-		494ADE72268F0573009B840F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 49AB295C268A156F00251092 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 494ADE67268F0572009B840F;
-			remoteInfo = Presenter;
-		};
-		494ADE74268F0573009B840F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 49AB295C268A156F00251092 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 49AB2963268A156F00251092;
-			remoteInfo = "fizz-buzz";
-		};
-		494ADE7B268F0573009B840F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 49AB295C268A156F00251092 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 494ADE67268F0572009B840F;
-			remoteInfo = Presenter;
-		};
 		494ADE97268F098F009B840F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 49AB295C268A156F00251092 /* Project object */;
@@ -98,61 +43,12 @@
 			remoteGlobalIDString = 494ADE8C268F098F009B840F;
 			remoteInfo = Interactor;
 		};
-		494ADE99268F098F009B840F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 49AB295C268A156F00251092 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 49AB2963268A156F00251092;
-			remoteInfo = "fizz-buzz";
-		};
-		494ADEA0268F098F009B840F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 49AB295C268A156F00251092 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 494ADE8C268F098F009B840F;
-			remoteInfo = Interactor;
-		};
-		494ADED9268F1917009B840F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 49AB295C268A156F00251092 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 494ADED3268F1917009B840F;
-			remoteInfo = ViewModel;
-		};
-		494ADEEC268F198E009B840F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 49AB295C268A156F00251092 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 494ADEE6268F198E009B840F;
-			remoteInfo = View;
-		};
 		494ADF0D26926E67009B840F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 49AB295C268A156F00251092 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 494ADF0226926E67009B840F;
 			remoteInfo = Repository;
-		};
-		494ADF0F26926E67009B840F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 49AB295C268A156F00251092 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 49AB2963268A156F00251092;
-			remoteInfo = "fizz-buzz";
-		};
-		494ADF1626926E68009B840F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 49AB295C268A156F00251092 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 494ADF0226926E67009B840F;
-			remoteInfo = Repository;
-		};
-		4958DFB726946D0F002C2863 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 49AB295C268A156F00251092 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 494ADE4F268F0287009B840F;
-			remoteInfo = Entity;
 		};
 		4958DFB926946D15002C2863 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -168,35 +64,69 @@
 			remoteGlobalIDString = 494ADE4F268F0287009B840F;
 			remoteInfo = Entity;
 		};
-		4958DFBD26946D26002C2863 /* PBXContainerItemProxy */ = {
+		49F9A07D269839CA00EE6ED3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 49AB295C268A156F00251092 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 494ADED3268F1917009B840F;
-			remoteInfo = ViewModel;
+			remoteGlobalIDString = 494ADE4F268F0287009B840F;
+			remoteInfo = Entity;
 		};
-		4958DFBF26946D2C002C2863 /* PBXContainerItemProxy */ = {
+		49F9A07F269839CA00EE6ED3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 49AB295C268A156F00251092 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 494ADED3268F1917009B840F;
-			remoteInfo = ViewModel;
+			remoteGlobalIDString = 494ADE8C268F098F009B840F;
+			remoteInfo = Interactor;
+		};
+		49F9A081269839CA00EE6ED3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49AB295C268A156F00251092 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 494ADF0226926E67009B840F;
+			remoteInfo = Repository;
+		};
+		49F9A09026983CF300EE6ED3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49AB295C268A156F00251092 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 494ADE4F268F0287009B840F;
+			remoteInfo = Entity;
+		};
+		49F9A09426983CF300EE6ED3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49AB295C268A156F00251092 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 494ADE8C268F098F009B840F;
+			remoteInfo = Interactor;
+		};
+		49F9A09826983CF300EE6ED3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49AB295C268A156F00251092 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 494ADF0226926E67009B840F;
+			remoteInfo = Repository;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		494ADE59268F0287009B840F /* Embed Frameworks */ = {
+		49F9A074269839B000EE6ED3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		49F9A09A26983CF300EE6ED3 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				494ADE58268F0287009B840F /* Entity.framework in Embed Frameworks */,
-				494ADE7E268F0573009B840F /* Presenter.framework in Embed Frameworks */,
-				494ADF1926926E68009B840F /* Repository.framework in Embed Frameworks */,
-				494ADEA3268F098F009B840F /* Interactor.framework in Embed Frameworks */,
-				494ADEEF268F198E009B840F /* View.framework in Embed Frameworks */,
-				494ADEDC268F1917009B840F /* ViewModel.framework in Embed Frameworks */,
+				49F9A08F26983CF300EE6ED3 /* Entity.framework in Embed Frameworks */,
+				49F9A09326983CF300EE6ED3 /* Interactor.framework in Embed Frameworks */,
+				49F9A09726983CF300EE6ED3 /* Repository.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,13 +140,9 @@
 		494ADE5D268F02CB009B840F /* FizzBuzzRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FizzBuzzRequest.swift; sourceTree = "<group>"; };
 		494ADE5F268F0379009B840F /* FizzBuzzResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FizzBuzzResult.swift; sourceTree = "<group>"; };
 		494ADE61268F043F009B840F /* FizzBuzzStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FizzBuzzStatistics.swift; sourceTree = "<group>"; };
-		494ADE68268F0572009B840F /* Presenter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Presenter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		494ADE6A268F0572009B840F /* Presenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Presenter.h; sourceTree = "<group>"; };
-		494ADE6B268F0572009B840F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		494ADE70268F0573009B840F /* PresenterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PresenterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		494ADE77268F0573009B840F /* PresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterTests.swift; sourceTree = "<group>"; };
 		494ADE79268F0573009B840F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		494ADE86268F05AD009B840F /* FizzBuzzInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FizzBuzzInteractor.swift; sourceTree = "<group>"; };
 		494ADE8D268F098F009B840F /* Interactor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Interactor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		494ADE8F268F098F009B840F /* Interactor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Interactor.h; sourceTree = "<group>"; };
 		494ADE90268F098F009B840F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -224,18 +150,6 @@
 		494ADE9C268F098F009B840F /* InteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorTests.swift; sourceTree = "<group>"; };
 		494ADE9E268F098F009B840F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		494ADEAB268F09DA009B840F /* StatisticsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsRepository.swift; sourceTree = "<group>"; };
-		494ADED4268F1917009B840F /* ViewModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ViewModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		494ADED6268F1917009B840F /* ViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewModel.h; sourceTree = "<group>"; };
-		494ADED7268F1917009B840F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		494ADEE0268F1933009B840F /* FizzBuzzViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FizzBuzzViewModel.swift; sourceTree = "<group>"; };
-		494ADEE7268F198E009B840F /* View.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = View.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		494ADEE9268F198E009B840F /* View.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = View.h; sourceTree = "<group>"; };
-		494ADEEA268F198E009B840F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		494ADEF4268F19BD009B840F /* FizzBuzzPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FizzBuzzPresenter.swift; sourceTree = "<group>"; };
-		494ADEF626925FDE009B840F /* InputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewModel.swift; sourceTree = "<group>"; };
-		494ADEF826926001009B840F /* ResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModel.swift; sourceTree = "<group>"; };
-		494ADEFA2692602B009B840F /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
-		494ADEFC26926360009B840F /* FizzBuzzViewContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FizzBuzzViewContract.swift; sourceTree = "<group>"; };
 		494ADF0326926E67009B840F /* Repository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Repository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		494ADF0526926E67009B840F /* Repository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Repository.h; sourceTree = "<group>"; };
 		494ADF0626926E67009B840F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -244,23 +158,12 @@
 		494ADF1426926E67009B840F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		494ADF2026926EB6009B840F /* StatisticsRepositoryImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsRepositoryImplementation.swift; sourceTree = "<group>"; };
 		494ADF22269272D7009B840F /* FizzBuzzInteractorImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FizzBuzzInteractorImplementation.swift; sourceTree = "<group>"; };
-		494ADF252692792A009B840F /* FizzBuzzViewModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FizzBuzzViewModelMapper.swift; sourceTree = "<group>"; };
 		494ADF2726927B06009B840F /* MapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapperTests.swift; sourceTree = "<group>"; };
-		494ADF29269281BE009B840F /* FizzBuzzPresenterImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FizzBuzzPresenterImplementation.swift; sourceTree = "<group>"; };
-		494ADF2C269292AC009B840F /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
-		494ADF2E2692940F009B840F /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
-		494ADF3A269295E6009B840F /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		494ADF3B269295FF009B840F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		494ADF3E26929770009B840F /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
-		494ADF4026929891009B840F /* FizzBuzzView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FizzBuzzView.swift; sourceTree = "<group>"; };
-		494ADF4226929AD9009B840F /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
-		494ADF4426929ECF009B840F /* FizzBuzzParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FizzBuzzParameter.swift; sourceTree = "<group>"; };
-		494ADF462692A0D3009B840F /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
-		49AB2964268A156F00251092 /* fizz-buzz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fizz-buzz.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		49AB2967268A156F00251092 /* fizz_buzzApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fizz_buzzApp.swift; sourceTree = "<group>"; };
-		49AB296B268A157400251092 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		49AB296E268A157400251092 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		49AB2970268A157400251092 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49F9A076269839B000EE6ED3 /* CLI */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CLI; sourceTree = BUILT_PRODUCTS_DIR; };
+		49F9A078269839B000EE6ED3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		49F9A083269839F500EE6ED3 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
+		49F9A08826983AF200EE6ED3 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
+		49F9A08B26983C4800EE6ED3 /* FizzBuzzInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FizzBuzzInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,18 +174,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		494ADE65268F0572009B840F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		494ADE6D268F0573009B840F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				494ADE71268F0573009B840F /* Presenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,20 +196,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		494ADED1268F1917009B840F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		494ADEE4268F198E009B840F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		494ADF0026926E67009B840F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -330,16 +211,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		49AB2961268A156F00251092 /* Frameworks */ = {
+		49F9A073269839B000EE6ED3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				494ADE57268F0287009B840F /* Entity.framework in Frameworks */,
-				494ADE7D268F0573009B840F /* Presenter.framework in Frameworks */,
-				494ADF1826926E68009B840F /* Repository.framework in Frameworks */,
-				494ADEA2268F098F009B840F /* Interactor.framework in Frameworks */,
-				494ADEEE268F198E009B840F /* View.framework in Frameworks */,
-				494ADEDB268F1917009B840F /* ViewModel.framework in Frameworks */,
+				49F9A09626983CF300EE6ED3 /* Repository.framework in Frameworks */,
+				49F9A08726983AE000EE6ED3 /* ArgumentParser in Frameworks */,
+				49F9A08E26983CF300EE6ED3 /* Entity.framework in Frameworks */,
+				49F9A09226983CF300EE6ED3 /* Interactor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,18 +237,6 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		494ADE69268F0572009B840F /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				494ADF2426927913009B840F /* Internal */,
-				494ADE85268F058B009B840F /* Requirements */,
-				494ADE6A268F0572009B840F /* Presenter.h */,
-				494ADE6B268F0572009B840F /* Info.plist */,
-				494ADF29269281BE009B840F /* FizzBuzzPresenterImplementation.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
 		494ADE76268F0573009B840F /* PresenterTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -378,15 +245,6 @@
 				494ADE79268F0573009B840F /* Info.plist */,
 			);
 			path = PresenterTests;
-			sourceTree = "<group>";
-		};
-		494ADE85268F058B009B840F /* Requirements */ = {
-			isa = PBXGroup;
-			children = (
-				494ADE86268F05AD009B840F /* FizzBuzzInteractor.swift */,
-				494ADEFC26926360009B840F /* FizzBuzzViewContract.swift */,
-			);
-			path = Requirements;
 			sourceTree = "<group>";
 		};
 		494ADE8E268F098F009B840F /* Interactor */ = {
@@ -417,40 +275,6 @@
 			path = Requirements;
 			sourceTree = "<group>";
 		};
-		494ADED5268F1917009B840F /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				494ADED6268F1917009B840F /* ViewModel.h */,
-				494ADED7268F1917009B840F /* Info.plist */,
-				494ADEE0268F1933009B840F /* FizzBuzzViewModel.swift */,
-				494ADEF626925FDE009B840F /* InputViewModel.swift */,
-				494ADEF826926001009B840F /* ResultViewModel.swift */,
-				494ADEFA2692602B009B840F /* StatisticsViewModel.swift */,
-				494ADF4426929ECF009B840F /* FizzBuzzParameter.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		494ADEE8268F198E009B840F /* View */ = {
-			isa = PBXGroup;
-			children = (
-				494ADF2B26929288009B840F /* Internal */,
-				494ADEF3268F19A2009B840F /* Requirements */,
-				494ADEE9268F198E009B840F /* View.h */,
-				494ADEEA268F198E009B840F /* Info.plist */,
-				494ADF4026929891009B840F /* FizzBuzzView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		494ADEF3268F19A2009B840F /* Requirements */ = {
-			isa = PBXGroup;
-			children = (
-				494ADEF4268F19BD009B840F /* FizzBuzzPresenter.swift */,
-			);
-			path = Requirements;
-			sourceTree = "<group>";
-		};
 		494ADF0426926E67009B840F /* Repository */ = {
 			isa = PBXGroup;
 			children = (
@@ -470,24 +294,6 @@
 			path = RepositoryTests;
 			sourceTree = "<group>";
 		};
-		494ADF2426927913009B840F /* Internal */ = {
-			isa = PBXGroup;
-			children = (
-				494ADF252692792A009B840F /* FizzBuzzViewModelMapper.swift */,
-			);
-			path = Internal;
-			sourceTree = "<group>";
-		};
-		494ADF2B26929288009B840F /* Internal */ = {
-			isa = PBXGroup;
-			children = (
-				494ADF2C269292AC009B840F /* InputView.swift */,
-				494ADF2E2692940F009B840F /* ResultView.swift */,
-				494ADF3E26929770009B840F /* StatisticsView.swift */,
-			);
-			path = Internal;
-			sourceTree = "<group>";
-		};
 		49AB295B268A156F00251092 = {
 			isa = PBXGroup;
 			children = (
@@ -496,53 +302,51 @@
 				494ADF1126926E67009B840F /* RepositoryTests */,
 				494ADE8E268F098F009B840F /* Interactor */,
 				494ADE9B268F098F009B840F /* InteractorTests */,
-				494ADED5268F1917009B840F /* ViewModel */,
-				494ADE69268F0572009B840F /* Presenter */,
 				494ADE76268F0573009B840F /* PresenterTests */,
-				494ADEE8268F198E009B840F /* View */,
-				49AB2966268A156F00251092 /* fizz-buzz */,
+				49F9A077269839B000EE6ED3 /* CLI */,
 				49AB2965268A156F00251092 /* Products */,
+				49F9A08D26983CF300EE6ED3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		49AB2965268A156F00251092 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				49AB2964268A156F00251092 /* fizz-buzz.app */,
 				494ADE50268F0287009B840F /* Entity.framework */,
-				494ADE68268F0572009B840F /* Presenter.framework */,
 				494ADE70268F0573009B840F /* PresenterTests.xctest */,
 				494ADE8D268F098F009B840F /* Interactor.framework */,
 				494ADE95268F098F009B840F /* InteractorTests.xctest */,
-				494ADED4268F1917009B840F /* ViewModel.framework */,
-				494ADEE7268F198E009B840F /* View.framework */,
 				494ADF0326926E67009B840F /* Repository.framework */,
 				494ADF0B26926E67009B840F /* RepositoryTests.xctest */,
+				49F9A076269839B000EE6ED3 /* CLI */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		49AB2966268A156F00251092 /* fizz-buzz */ = {
+		49F9A077269839B000EE6ED3 /* CLI */ = {
 			isa = PBXGroup;
 			children = (
-				494ADF3A269295E6009B840F /* Localizable.strings */,
-				494ADF3B269295FF009B840F /* Utils.swift */,
-				49AB2967268A156F00251092 /* fizz_buzzApp.swift */,
-				49AB296B268A157400251092 /* Assets.xcassets */,
-				49AB2970268A157400251092 /* Info.plist */,
-				49AB296D268A157400251092 /* Preview Content */,
-				494ADF4226929AD9009B840F /* Assembly.swift */,
-				494ADF462692A0D3009B840F /* Factory.swift */,
+				49F9A08A26983C3E00EE6ED3 /* Requirements */,
+				49F9A083269839F500EE6ED3 /* Assembly.swift */,
+				49F9A08826983AF200EE6ED3 /* Factory.swift */,
+				49F9A078269839B000EE6ED3 /* main.swift */,
 			);
-			path = "fizz-buzz";
+			path = CLI;
 			sourceTree = "<group>";
 		};
-		49AB296D268A157400251092 /* Preview Content */ = {
+		49F9A08A26983C3E00EE6ED3 /* Requirements */ = {
 			isa = PBXGroup;
 			children = (
-				49AB296E268A157400251092 /* Preview Assets.xcassets */,
+				49F9A08B26983C4800EE6ED3 /* FizzBuzzInteractor.swift */,
 			);
-			path = "Preview Content";
+			path = Requirements;
+			sourceTree = "<group>";
+		};
+		49F9A08D26983CF300EE6ED3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -556,35 +360,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		494ADE63268F0572009B840F /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				494ADE7A268F0573009B840F /* Presenter.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		494ADE88268F098F009B840F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				494ADE9F268F098F009B840F /* Interactor.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		494ADECF268F1917009B840F /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				494ADED8268F1917009B840F /* ViewModel.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		494ADEE2268F198E009B840F /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				494ADEEB268F198E009B840F /* View.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,26 +397,6 @@
 			productReference = 494ADE50268F0287009B840F /* Entity.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		494ADE67268F0572009B840F /* Presenter */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 494ADE7F268F0573009B840F /* Build configuration list for PBXNativeTarget "Presenter" */;
-			buildPhases = (
-				494ADE63268F0572009B840F /* Headers */,
-				494ADE64268F0572009B840F /* Sources */,
-				494ADE65268F0572009B840F /* Frameworks */,
-				494ADE66268F0572009B840F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4958DFBE26946D26002C2863 /* PBXTargetDependency */,
-				4958DFB826946D0F002C2863 /* PBXTargetDependency */,
-			);
-			name = Presenter;
-			productName = Presenter;
-			productReference = 494ADE68268F0572009B840F /* Presenter.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		494ADE6F268F0573009B840F /* PresenterTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 494ADE82268F0573009B840F /* Build configuration list for PBXNativeTarget "PresenterTests" */;
@@ -648,8 +408,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				494ADE73268F0573009B840F /* PBXTargetDependency */,
-				494ADE75268F0573009B840F /* PBXTargetDependency */,
 			);
 			name = PresenterTests;
 			productName = PresenterTests;
@@ -687,49 +445,11 @@
 			);
 			dependencies = (
 				494ADE98268F098F009B840F /* PBXTargetDependency */,
-				494ADE9A268F098F009B840F /* PBXTargetDependency */,
 			);
 			name = InteractorTests;
 			productName = InteractorTests;
 			productReference = 494ADE95268F098F009B840F /* InteractorTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		494ADED3268F1917009B840F /* ViewModel */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 494ADEDF268F1917009B840F /* Build configuration list for PBXNativeTarget "ViewModel" */;
-			buildPhases = (
-				494ADECF268F1917009B840F /* Headers */,
-				494ADED0268F1917009B840F /* Sources */,
-				494ADED1268F1917009B840F /* Frameworks */,
-				494ADED2268F1917009B840F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ViewModel;
-			productName = ViewModel;
-			productReference = 494ADED4268F1917009B840F /* ViewModel.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		494ADEE6268F198E009B840F /* View */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 494ADEF0268F198E009B840F /* Build configuration list for PBXNativeTarget "View" */;
-			buildPhases = (
-				494ADEE2268F198E009B840F /* Headers */,
-				494ADEE3268F198E009B840F /* Sources */,
-				494ADEE4268F198E009B840F /* Frameworks */,
-				494ADEE5268F198E009B840F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4958DFC026946D2C002C2863 /* PBXTargetDependency */,
-			);
-			name = View;
-			productName = View;
-			productReference = 494ADEE7268F198E009B840F /* View.framework */;
-			productType = "com.apple.product-type.framework";
 		};
 		494ADF0226926E67009B840F /* Repository */ = {
 			isa = PBXNativeTarget;
@@ -762,36 +482,38 @@
 			);
 			dependencies = (
 				494ADF0E26926E67009B840F /* PBXTargetDependency */,
-				494ADF1026926E67009B840F /* PBXTargetDependency */,
 			);
 			name = RepositoryTests;
 			productName = RepositoryTests;
 			productReference = 494ADF0B26926E67009B840F /* RepositoryTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		49AB2963268A156F00251092 /* fizz-buzz */ = {
+		49F9A075269839B000EE6ED3 /* CLI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 49AB2989268A157500251092 /* Build configuration list for PBXNativeTarget "fizz-buzz" */;
+			buildConfigurationList = 49F9A07C269839B000EE6ED3 /* Build configuration list for PBXNativeTarget "CLI" */;
 			buildPhases = (
-				49AB2960268A156F00251092 /* Sources */,
-				49AB2961268A156F00251092 /* Frameworks */,
-				49AB2962268A156F00251092 /* Resources */,
-				494ADE59268F0287009B840F /* Embed Frameworks */,
+				49F9A072269839B000EE6ED3 /* Sources */,
+				49F9A073269839B000EE6ED3 /* Frameworks */,
+				49F9A074269839B000EE6ED3 /* CopyFiles */,
+				49F9A09A26983CF300EE6ED3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				494ADE56268F0287009B840F /* PBXTargetDependency */,
-				494ADE7C268F0573009B840F /* PBXTargetDependency */,
-				494ADEA1268F098F009B840F /* PBXTargetDependency */,
-				494ADEDA268F1917009B840F /* PBXTargetDependency */,
-				494ADEED268F198E009B840F /* PBXTargetDependency */,
-				494ADF1726926E68009B840F /* PBXTargetDependency */,
+				49F9A07E269839CA00EE6ED3 /* PBXTargetDependency */,
+				49F9A080269839CA00EE6ED3 /* PBXTargetDependency */,
+				49F9A082269839CA00EE6ED3 /* PBXTargetDependency */,
+				49F9A09126983CF300EE6ED3 /* PBXTargetDependency */,
+				49F9A09526983CF300EE6ED3 /* PBXTargetDependency */,
+				49F9A09926983CF300EE6ED3 /* PBXTargetDependency */,
 			);
-			name = "fizz-buzz";
-			productName = "fizz-buzz";
-			productReference = 49AB2964268A156F00251092 /* fizz-buzz.app */;
-			productType = "com.apple.product-type.application";
+			name = CLI;
+			packageProductDependencies = (
+				49F9A08626983AE000EE6ED3 /* ArgumentParser */,
+			);
+			productName = CLI;
+			productReference = 49F9A076269839B000EE6ED3 /* CLI */;
+			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
@@ -803,10 +525,6 @@
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					494ADE4F268F0287009B840F = {
-						CreatedOnToolsVersion = 12.5.1;
-						LastSwiftMigration = 1250;
-					};
-					494ADE67268F0572009B840F = {
 						CreatedOnToolsVersion = 12.5.1;
 						LastSwiftMigration = 1250;
 					};
@@ -822,14 +540,6 @@
 						CreatedOnToolsVersion = 12.5.1;
 						TestTargetID = 49AB2963268A156F00251092;
 					};
-					494ADED3268F1917009B840F = {
-						CreatedOnToolsVersion = 12.5.1;
-						LastSwiftMigration = 1250;
-					};
-					494ADEE6268F198E009B840F = {
-						CreatedOnToolsVersion = 12.5.1;
-						LastSwiftMigration = 1250;
-					};
 					494ADF0226926E67009B840F = {
 						CreatedOnToolsVersion = 12.5.1;
 						LastSwiftMigration = 1250;
@@ -838,7 +548,7 @@
 						CreatedOnToolsVersion = 12.5.1;
 						TestTargetID = 49AB2963268A156F00251092;
 					};
-					49AB2963268A156F00251092 = {
+					49F9A075269839B000EE6ED3 = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
 				};
@@ -852,33 +562,26 @@
 				Base,
 			);
 			mainGroup = 49AB295B268A156F00251092;
+			packageReferences = (
+				49F9A08526983AE000EE6ED3 /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
+			);
 			productRefGroup = 49AB2965268A156F00251092 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				49AB2963268A156F00251092 /* fizz-buzz */,
 				494ADE4F268F0287009B840F /* Entity */,
-				494ADE67268F0572009B840F /* Presenter */,
 				494ADE6F268F0573009B840F /* PresenterTests */,
 				494ADE8C268F098F009B840F /* Interactor */,
 				494ADE94268F098F009B840F /* InteractorTests */,
-				494ADED3268F1917009B840F /* ViewModel */,
-				494ADEE6268F198E009B840F /* View */,
 				494ADF0226926E67009B840F /* Repository */,
 				494ADF0A26926E67009B840F /* RepositoryTests */,
+				49F9A075269839B000EE6ED3 /* CLI */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		494ADE4E268F0287009B840F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		494ADE66268F0572009B840F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -906,20 +609,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		494ADED2268F1917009B840F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		494ADEE5268F198E009B840F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		494ADF0126926E67009B840F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -934,16 +623,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		49AB2962268A156F00251092 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				49AB296F268A157400251092 /* Preview Assets.xcassets in Resources */,
-				494ADF482692A176009B840F /* Localizable.strings in Resources */,
-				49AB296C268A157400251092 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -954,17 +633,6 @@
 				494ADE60268F0379009B840F /* FizzBuzzResult.swift in Sources */,
 				494ADE5E268F02CB009B840F /* FizzBuzzRequest.swift in Sources */,
 				494ADE62268F043F009B840F /* FizzBuzzStatistics.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		494ADE64268F0572009B840F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				494ADF2A269281BE009B840F /* FizzBuzzPresenterImplementation.swift in Sources */,
-				494ADEFD26926360009B840F /* FizzBuzzViewContract.swift in Sources */,
-				494ADF262692792A009B840F /* FizzBuzzViewModelMapper.swift in Sources */,
-				494ADE87268F05AD009B840F /* FizzBuzzInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -994,31 +662,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		494ADED0268F1917009B840F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				494ADEF726925FDE009B840F /* InputViewModel.swift in Sources */,
-				494ADEF926926001009B840F /* ResultViewModel.swift in Sources */,
-				494ADEE1268F1933009B840F /* FizzBuzzViewModel.swift in Sources */,
-				494ADF4526929ED0009B840F /* FizzBuzzParameter.swift in Sources */,
-				494ADEFB2692602B009B840F /* StatisticsViewModel.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		494ADEE3268F198E009B840F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				494ADF4126929891009B840F /* FizzBuzzView.swift in Sources */,
-				494ADEF5268F19BD009B840F /* FizzBuzzPresenter.swift in Sources */,
-				494ADF3F26929770009B840F /* StatisticsView.swift in Sources */,
-				494ADF2D269292AC009B840F /* InputView.swift in Sources */,
-				494ADF2F2692940F009B840F /* ResultView.swift in Sources */,
-				494ADF3D26929603009B840F /* Utils.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		494ADEFF26926E67009B840F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1035,84 +678,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		49AB2960268A156F00251092 /* Sources */ = {
+		49F9A072269839B000EE6ED3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				494ADF472692A0D3009B840F /* Factory.swift in Sources */,
-				494ADF4326929AD9009B840F /* Assembly.swift in Sources */,
-				49AB2968268A156F00251092 /* fizz_buzzApp.swift in Sources */,
-				494ADF3C269295FF009B840F /* Utils.swift in Sources */,
+				49F9A08C26983C4F00EE6ED3 /* FizzBuzzInteractor.swift in Sources */,
+				49F9A079269839B000EE6ED3 /* main.swift in Sources */,
+				49F9A084269839F500EE6ED3 /* Assembly.swift in Sources */,
+				49F9A08926983AF200EE6ED3 /* Factory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		494ADE56268F0287009B840F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 494ADE4F268F0287009B840F /* Entity */;
-			targetProxy = 494ADE55268F0287009B840F /* PBXContainerItemProxy */;
-		};
-		494ADE73268F0573009B840F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 494ADE67268F0572009B840F /* Presenter */;
-			targetProxy = 494ADE72268F0573009B840F /* PBXContainerItemProxy */;
-		};
-		494ADE75268F0573009B840F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 49AB2963268A156F00251092 /* fizz-buzz */;
-			targetProxy = 494ADE74268F0573009B840F /* PBXContainerItemProxy */;
-		};
-		494ADE7C268F0573009B840F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 494ADE67268F0572009B840F /* Presenter */;
-			targetProxy = 494ADE7B268F0573009B840F /* PBXContainerItemProxy */;
-		};
 		494ADE98268F098F009B840F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 494ADE8C268F098F009B840F /* Interactor */;
 			targetProxy = 494ADE97268F098F009B840F /* PBXContainerItemProxy */;
 		};
-		494ADE9A268F098F009B840F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 49AB2963268A156F00251092 /* fizz-buzz */;
-			targetProxy = 494ADE99268F098F009B840F /* PBXContainerItemProxy */;
-		};
-		494ADEA1268F098F009B840F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 494ADE8C268F098F009B840F /* Interactor */;
-			targetProxy = 494ADEA0268F098F009B840F /* PBXContainerItemProxy */;
-		};
-		494ADEDA268F1917009B840F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 494ADED3268F1917009B840F /* ViewModel */;
-			targetProxy = 494ADED9268F1917009B840F /* PBXContainerItemProxy */;
-		};
-		494ADEED268F198E009B840F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 494ADEE6268F198E009B840F /* View */;
-			targetProxy = 494ADEEC268F198E009B840F /* PBXContainerItemProxy */;
-		};
 		494ADF0E26926E67009B840F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 494ADF0226926E67009B840F /* Repository */;
 			targetProxy = 494ADF0D26926E67009B840F /* PBXContainerItemProxy */;
-		};
-		494ADF1026926E67009B840F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 49AB2963268A156F00251092 /* fizz-buzz */;
-			targetProxy = 494ADF0F26926E67009B840F /* PBXContainerItemProxy */;
-		};
-		494ADF1726926E68009B840F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 494ADF0226926E67009B840F /* Repository */;
-			targetProxy = 494ADF1626926E68009B840F /* PBXContainerItemProxy */;
-		};
-		4958DFB826946D0F002C2863 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 494ADE4F268F0287009B840F /* Entity */;
-			targetProxy = 4958DFB726946D0F002C2863 /* PBXContainerItemProxy */;
 		};
 		4958DFBA26946D15002C2863 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1124,15 +712,35 @@
 			target = 494ADE4F268F0287009B840F /* Entity */;
 			targetProxy = 4958DFBB26946D1D002C2863 /* PBXContainerItemProxy */;
 		};
-		4958DFBE26946D26002C2863 /* PBXTargetDependency */ = {
+		49F9A07E269839CA00EE6ED3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 494ADED3268F1917009B840F /* ViewModel */;
-			targetProxy = 4958DFBD26946D26002C2863 /* PBXContainerItemProxy */;
+			target = 494ADE4F268F0287009B840F /* Entity */;
+			targetProxy = 49F9A07D269839CA00EE6ED3 /* PBXContainerItemProxy */;
 		};
-		4958DFC026946D2C002C2863 /* PBXTargetDependency */ = {
+		49F9A080269839CA00EE6ED3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 494ADED3268F1917009B840F /* ViewModel */;
-			targetProxy = 4958DFBF26946D2C002C2863 /* PBXContainerItemProxy */;
+			target = 494ADE8C268F098F009B840F /* Interactor */;
+			targetProxy = 49F9A07F269839CA00EE6ED3 /* PBXContainerItemProxy */;
+		};
+		49F9A082269839CA00EE6ED3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 494ADF0226926E67009B840F /* Repository */;
+			targetProxy = 49F9A081269839CA00EE6ED3 /* PBXContainerItemProxy */;
+		};
+		49F9A09126983CF300EE6ED3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 494ADE4F268F0287009B840F /* Entity */;
+			targetProxy = 49F9A09026983CF300EE6ED3 /* PBXContainerItemProxy */;
+		};
+		49F9A09526983CF300EE6ED3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 494ADE8C268F098F009B840F /* Interactor */;
+			targetProxy = 49F9A09426983CF300EE6ED3 /* PBXContainerItemProxy */;
+		};
+		49F9A09926983CF300EE6ED3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 494ADF0226926E67009B840F /* Repository */;
+			targetProxy = 49F9A09826983CF300EE6ED3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1158,9 +766,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.fabernovel.rougeot.Entity;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1187,65 +796,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.fabernovel.rougeot.Entity;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		494ADE80268F0573009B840F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4AA4AV2F4H;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Presenter/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fabernovel.rougeot.Presenter;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		494ADE81268F0573009B840F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4AA4AV2F4H;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Presenter/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fabernovel.rougeot.Presenter;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1312,9 +865,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.fabernovel.rougeot.Interactor;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1341,8 +895,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.fabernovel.rougeot.Interactor;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1388,123 +943,10 @@
 			};
 			name = Release;
 		};
-		494ADEDD268F1917009B840F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4AA4AV2F4H;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = ViewModel/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fabernovel.rougeot.ViewModel;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		494ADEDE268F1917009B840F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4AA4AV2F4H;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = ViewModel/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fabernovel.rougeot.ViewModel;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		494ADEF1268F198E009B840F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4AA4AV2F4H;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = View/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fabernovel.rougeot.View;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		494ADEF2268F198E009B840F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4AA4AV2F4H;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = View/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fabernovel.rougeot.View;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		494ADF1B26926E68009B840F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ADDITIONAL_SDKS = "";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1523,9 +965,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.fabernovel.rougeot.Repository;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1534,6 +977,7 @@
 		494ADF1C26926E68009B840F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ADDITIONAL_SDKS = "";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1552,8 +996,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.fabernovel.rougeot.Repository;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1715,49 +1160,37 @@
 			};
 			name = Release;
 		};
-		49AB298A268A157500251092 /* Debug */ = {
+		49F9A07A269839B000EE6ED3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"fizz-buzz/Preview Content\"";
 				DEVELOPMENT_TEAM = 4AA4AV2F4H;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "fizz-buzz/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				ENABLE_HARDENED_RUNTIME = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
+					"@executable_path",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fabernovel.rougeot.fizz-buzz";
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		49AB298B268A157500251092 /* Release */ = {
+		49F9A07B269839B000EE6ED3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"fizz-buzz/Preview Content\"";
 				DEVELOPMENT_TEAM = 4AA4AV2F4H;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "fizz-buzz/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				ENABLE_HARDENED_RUNTIME = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
+					"@executable_path",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fabernovel.rougeot.fizz-buzz";
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1769,15 +1202,6 @@
 			buildConfigurations = (
 				494ADE5A268F0287009B840F /* Debug */,
 				494ADE5B268F0287009B840F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		494ADE7F268F0573009B840F /* Build configuration list for PBXNativeTarget "Presenter" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				494ADE80268F0573009B840F /* Debug */,
-				494ADE81268F0573009B840F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1809,24 +1233,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		494ADEDF268F1917009B840F /* Build configuration list for PBXNativeTarget "ViewModel" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				494ADEDD268F1917009B840F /* Debug */,
-				494ADEDE268F1917009B840F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		494ADEF0268F198E009B840F /* Build configuration list for PBXNativeTarget "View" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				494ADEF1268F198E009B840F /* Debug */,
-				494ADEF2268F198E009B840F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		494ADF1A26926E68009B840F /* Build configuration list for PBXNativeTarget "Repository" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1854,16 +1260,35 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		49AB2989268A157500251092 /* Build configuration list for PBXNativeTarget "fizz-buzz" */ = {
+		49F9A07C269839B000EE6ED3 /* Build configuration list for PBXNativeTarget "CLI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				49AB298A268A157500251092 /* Debug */,
-				49AB298B268A157500251092 /* Release */,
+				49F9A07A269839B000EE6ED3 /* Debug */,
+				49F9A07B269839B000EE6ED3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		49F9A08526983AE000EE6ED3 /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-argument-parser";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		49F9A08626983AE000EE6ED3 /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 49F9A08526983AE000EE6ED3 /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 49AB295C268A156F00251092 /* Project object */;
 }
