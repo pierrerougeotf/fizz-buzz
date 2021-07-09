@@ -35,7 +35,7 @@ struct ResultView: View {
 
 extension ResultViewModel.Values: RandomAccessCollection {
     public var startIndex: Int { return 1 }
-    public var endIndex: Int { return count }
+    public var endIndex: Int { return count + 1 }
     public subscript(_ index: Int) -> (id: Int, value: String) { (id: index, value: provider(index) ?? "") }
 }
 

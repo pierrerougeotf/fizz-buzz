@@ -20,7 +20,8 @@ public class FizzBuzzInteractorImplementation {
               let int2 = request.int2,
               let limit = request.limit else { return .empty }
         statisticsRepository.record(request: request)
-        return FizzBuzzResult(count: limit + 1) { index in
+        return FizzBuzzResult(count: limit) { index in
+            guard (1...limit).contains(index) else { return nil }
             switch (index % int1 == 0, index % int2 == 0) {
             case (true, false):
                 return request.str1
